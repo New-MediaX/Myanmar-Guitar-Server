@@ -11,4 +11,9 @@ class HomeController extends Controller
     {
         return view('app.home');
     }
+
+    public function getAppName()
+    {
+        return config("app.name", "Laravel");
+    }
 }

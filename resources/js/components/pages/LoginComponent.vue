@@ -33,15 +33,15 @@
               </div>
             </div>
           </div>
+          <div v-if="status == 1" class="alert alert-success" role="alert">
+            Login Success!
+          </div>
+          <div v-if="status == 2" class="alert alert-danger" role="alert">
+            Invalid Username Or Password!
+          </div>
           <div class="row">
-            <div class="col-8">
-              <div class="icheck-primary">
-                <input type="checkbox" id="remember" v-model="remember" />
-                <label for="remember"> Remember Me </label>
-              </div>
-            </div>
             <!-- /.col -->
-            <div class="col-4">
+            <div class="col-12">
               <button type="submit" class="btn btn-primary btn-block">
                 Sign In
               </button>
@@ -63,18 +63,27 @@ export default {
     return {
       username: "",
       password: "",
-      remember: false,
+      status: 0,
     };
   },
   methods: {
     login(e) {
+      this.status = 0;
       e.preventDefault();
       if (this.username !== "") {
         if (this.password !== "") {
           axios
-            .post("/auth/login",{"email" : this.username,"password" : this.password})
+            .post("/auth/login", {
+              email: this.username,
+              password: this.password,
+            })
             .then((res) => {
-              if(res.data == "Success") {window.location = '/home'};
+              if (res.data == "Success") {
+                this.status = 1;
+                window.location = "/home";
+              } else {
+                this.status = 2;
+              }
             })
             .catch((err) => {
               console.log("error");

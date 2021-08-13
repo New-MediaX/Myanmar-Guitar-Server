@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Author;
+use App\Models\Album;
+
 class Song extends Model
 {
     use HasFactory;
@@ -12,4 +15,14 @@ class Song extends Model
     protected $table = "songs";
 
     protected $guarded = [];
+
+    public function author()
+    {
+        return $this->hasOne(Author::class,'id','author_id');
+    }
+
+    public function album()
+    {
+        return $this->hasOne(Author::class,'id','album_id');
+    }
 }

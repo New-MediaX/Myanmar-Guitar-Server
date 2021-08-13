@@ -20,6 +20,13 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('login-component' , require('./components/pages/LoginComponent.vue').default);
+Vue.component('home-component' , require('./components/pages/HomeComponent.vue').default);
+
+Vue.component('song-component' , require('./components/pages/Songs/ListComponent.vue').default);
+Vue.component('create-song-component' , require('./components/pages/Songs/CreateComponent.vue').default);
+Vue.component('edit-song-component' , require('./components/pages/Songs/EditComponent.vue').default);
+
+Vue.component('author-component' , require('./components/pages/Authors/ListComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
