@@ -9,7 +9,7 @@
               Album List
               <a
                 class="btn btn-success btn-md"
-                href="/albums/create"
+                :href="url+'/albums/create'"
                 role="button"
                 >Create New <i class="fas fa-plus-circle"></i
               ></a>
@@ -54,7 +54,7 @@
                       <td>
                         <a
                           class="btn btn-warning"
-                          :href="'/albums/edit/' + album.id"
+                          :href="url+'/albums/edit/' + album.id"
                           role="button"
                           ><i class="fas fa-edit"></i
                         ></a>
@@ -98,7 +98,7 @@ import "sweetalert2/dist/sweetalert2.min.css";
 Vue.use(VueSweetalert2);
 
 export default {
-  props: ["baseUrl"],
+  props: ["url"],
   data: function () {
     return {
       albums: {},
@@ -154,7 +154,7 @@ export default {
     }
   },
   mounted() {
-    axios.defaults.baseURL = this.baseUrl;
+    axios.defaults.baseURL = this.url;
     this.getAlbums();
   },
 };

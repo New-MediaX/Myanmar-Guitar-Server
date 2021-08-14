@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\songs\CreateSongRequest;
+use App\Http\Requests\songs\UpdateSongRequest;
 use App\Repositories\backend\SongRepository;
 use Illuminate\Http\Request;
 
@@ -44,7 +45,7 @@ class SongController extends Controller
         return view('app.songs.edit');
     }
 
-    public function update(CreateSongRequest $request,$id)
+    public function update(UpdateSongRequest $request,$id)
     {
         return $this->songRepo->update($request->all(),$id);
     }

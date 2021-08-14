@@ -1963,7 +1963,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["baseUrl"],
+  props: ["url"],
   data: function data() {
     return {
       errors: {},
@@ -1999,7 +1999,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
   }
 });
 
@@ -2136,7 +2136,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["id", "baseURL"],
+  props: ["id", "url"],
   data: function data() {
     return {
       errors: {},
@@ -2170,7 +2170,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this2 = this;
 
-    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/albums/get/".concat(this.id)).then(function (res) {
       if (res) {
         _this2.form_album_name_en = res.data.album_name_en;
@@ -2297,7 +2297,7 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
 
 Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["baseUrl"],
+  props: ["url"],
   data: function data() {
     return {
       albums: {}
@@ -2346,7 +2346,7 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
     }
   },
   mounted: function mounted() {
-    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
     this.getAlbums();
   }
 });
@@ -2482,7 +2482,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["baseUrl"],
+  props: ["url"],
   data: function data() {
     return {
       errors: {},
@@ -2518,7 +2518,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
   }
 });
 
@@ -2655,7 +2655,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["id", "baseURL"],
+  props: ["id", "url"],
   data: function data() {
     return {
       errors: {},
@@ -2689,7 +2689,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this2 = this;
 
-    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/authors/get/".concat(this.id)).then(function (res) {
       if (res) {
         _this2.form_author_name_en = res.data.author_name_en;
@@ -2816,7 +2816,7 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
 
 Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["baseUrl"],
+  props: ["url"],
   data: function data() {
     return {
       authors: {}
@@ -2865,7 +2865,7 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
     }
   },
   mounted: function mounted() {
-    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
     this.getAuthors();
   }
 });
@@ -2973,7 +2973,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["baseUrl"],
+  props: ["url"],
   data: function data() {
     return {
       appName: "",
@@ -2985,7 +2985,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/getAppName").then(function (res) {
       return _this.appName = res.data;
     })["catch"](function (err) {
@@ -3084,7 +3084,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["baseUrl"],
+  props: ['url'],
   data: function data() {
     return {
       username: "",
@@ -3107,7 +3107,7 @@ __webpack_require__.r(__webpack_exports__);
           }).then(function (res) {
             if (res.data == "Success") {
               _this.status = 1;
-              window.location = "/home";
+              window.location = "".concat(_this.url, "/home");
             } else {
               _this.status = 2;
             }
@@ -3119,7 +3119,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
   }
 });
 
@@ -3343,7 +3343,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["baseUrl"],
+  props: ["url"],
   data: function data() {
     return {
       authors: [],
@@ -3420,7 +3420,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this3 = this;
 
-    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/albums/all").then(function (res) {
       _this3.albums = res.data.data;
     })["catch"](function (err) {
@@ -3654,9 +3654,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["id", "baseURL"],
+  props: ["id", "url"],
   data: function data() {
     return {
       authors: [],
@@ -3667,6 +3672,7 @@ __webpack_require__.r(__webpack_exports__);
       form_song_name_en: "",
       form_song_name_mm: "",
       form_file: "",
+      form_new_file: "",
       form_is_new: false,
       form_is_popular: false,
       status: 0
@@ -3686,7 +3692,8 @@ __webpack_require__.r(__webpack_exports__);
         song_name_mm: this.form_song_name_mm,
         is_new: this.form_is_new,
         is_popular: this.form_is_popular,
-        image: this.form_file
+        image: this.form_file,
+        new_image: this.form_new_file
       };
       this.errors = {};
       axios__WEBPACK_IMPORTED_MODULE_0___default().put("/songs/edit/".concat(this.id), data).then(function (res) {
@@ -3712,7 +3719,8 @@ __webpack_require__.r(__webpack_exports__);
         var reader = new FileReader();
 
         reader.onload = function (event) {
-          _this2.form_file = event.target.result;
+          _this2.form_new_file = event.target.result;
+          _this2.form_file = "";
         };
 
         reader.readAsDataURL(file);
@@ -3724,7 +3732,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this3 = this;
 
-    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/songs/get/".concat(this.id)).then(function (res) {
       if (res) {
         _this3.form_author_id = res.data.author_id;
@@ -3739,12 +3747,12 @@ __webpack_require__.r(__webpack_exports__);
       console.log("error getting albums");
     });
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/albums/all").then(function (res) {
-      _this3.albums = res.data;
+      _this3.albums = res.data.data;
     })["catch"](function (err) {
       console.log("error getting albums");
     });
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/authors/all").then(function (res) {
-      _this3.authors = res.data;
+      _this3.authors = res.data.data;
     })["catch"](function (err) {
       console.log("error getting authors");
     });
@@ -3878,7 +3886,7 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
 
 Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["baseUrl"],
+  props: ["url"],
   data: function data() {
     return {
       songs: {}
@@ -3927,7 +3935,7 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
     }
   },
   mounted: function mounted() {
-    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
     this.getSongs();
   }
 });
@@ -41356,7 +41364,27 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("section", { staticClass: "content-header" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row mb-2" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("h1", [
+              _vm._v("Create New Album "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-success btn-md",
+                  attrs: { href: _vm.url + "/albums/list", role: "button" }
+                },
+                [_vm._v("Album List "), _c("i", { staticClass: "fas fa-list" })]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c("section", { staticClass: "content" }, [
       _c("div", { staticClass: "container-fluid" }, [
@@ -41533,34 +41561,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "content-header" }, [
-      _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row mb-2" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("h1", [
-              _vm._v("Create New Album "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-success btn-md",
-                  attrs: { href: "/albums/list", role: "button" }
-                },
-                [_vm._v("Album List "), _c("i", { staticClass: "fas fa-list" })]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
-              _c("li", { staticClass: "breadcrumb-item" }, [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "breadcrumb-item active" }, [
-                _vm._v("Create Album")
-              ])
-            ])
-          ])
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
+        _c("li", { staticClass: "breadcrumb-item" }, [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "breadcrumb-item active" }, [
+          _vm._v("Create Album")
         ])
       ])
     ])
@@ -41615,11 +41623,18 @@ var render = function() {
           _c("div", { staticClass: "col-sm-6" }, [
             _c("h1", [
               _vm._v(_vm._s(_vm.form_album_name_mm) + "\n               "),
-              _vm._m(0)
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-success btn-md",
+                  attrs: { href: _vm.url + "/albums/list", role: "button" }
+                },
+                [_vm._v("Album List "), _c("i", { staticClass: "fas fa-list" })]
+              )
             ])
           ]),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(0)
         ])
       ])
     ]),
@@ -41788,7 +41803,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(2)
+                  _vm._m(1)
                 ]
               )
             ])
@@ -41799,19 +41814,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "btn btn-success btn-md",
-        attrs: { href: "/albums/list", role: "button" }
-      },
-      [_vm._v("Album List "), _c("i", { staticClass: "fas fa-list" })]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -41864,7 +41866,30 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("section", { staticClass: "content-header" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row mb-2" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("h1", [
+              _vm._v("\n            Album List\n            "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-success btn-md",
+                  attrs: { href: _vm.url + "/albums/create", role: "button" }
+                },
+                [
+                  _vm._v("Create New "),
+                  _c("i", { staticClass: "fas fa-plus-circle" })
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c("section", { staticClass: "content" }, [
       _c("div", { staticClass: "container-fluid" }, [
@@ -41902,7 +41927,7 @@ var render = function() {
                                 {
                                   staticClass: "btn btn-warning",
                                   attrs: {
-                                    href: "/albums/edit/" + album.id,
+                                    href: _vm.url + "/albums/edit/" + album.id,
                                     role: "button"
                                   }
                                 },
@@ -41949,37 +41974,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "content-header" }, [
-      _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row mb-2" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("h1", [
-              _vm._v("\n            Album List\n            "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-success btn-md",
-                  attrs: { href: "/albums/create", role: "button" }
-                },
-                [
-                  _vm._v("Create New "),
-                  _c("i", { staticClass: "fas fa-plus-circle" })
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
-              _c("li", { staticClass: "breadcrumb-item" }, [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "breadcrumb-item active" }, [
-                _vm._v("Album List")
-              ])
-            ])
-          ])
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
+        _c("li", { staticClass: "breadcrumb-item" }, [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "breadcrumb-item active" }, [
+          _vm._v("Album List")
         ])
       ])
     ])
@@ -42032,7 +42034,30 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("section", { staticClass: "content-header" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row mb-2" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("h1", [
+              _vm._v("Create New Author "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-success btn-md",
+                  attrs: { href: _vm.url + "/authors/list", role: "button" }
+                },
+                [
+                  _vm._v("Author List "),
+                  _c("i", { staticClass: "fas fa-list" })
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c("section", { staticClass: "content" }, [
       _c("div", { staticClass: "container-fluid" }, [
@@ -42209,37 +42234,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "content-header" }, [
-      _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row mb-2" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("h1", [
-              _vm._v("Create New Author "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-success btn-md",
-                  attrs: { href: "/authors/list", role: "button" }
-                },
-                [
-                  _vm._v("Author List "),
-                  _c("i", { staticClass: "fas fa-list" })
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
-              _c("li", { staticClass: "breadcrumb-item" }, [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "breadcrumb-item active" }, [
-                _vm._v("Create Author")
-              ])
-            ])
-          ])
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
+        _c("li", { staticClass: "breadcrumb-item" }, [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "breadcrumb-item active" }, [
+          _vm._v("Create Author")
         ])
       ])
     ])
@@ -42294,11 +42296,21 @@ var render = function() {
           _c("div", { staticClass: "col-sm-6" }, [
             _c("h1", [
               _vm._v(_vm._s(_vm.form_author_name_mm) + "\n               "),
-              _vm._m(0)
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-success btn-md",
+                  attrs: { href: _vm.url + "/authors/list", role: "button" }
+                },
+                [
+                  _vm._v("Author List "),
+                  _c("i", { staticClass: "fas fa-list" })
+                ]
+              )
             ])
           ]),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(0)
         ])
       ])
     ]),
@@ -42467,7 +42479,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(2)
+                  _vm._m(1)
                 ]
               )
             ])
@@ -42478,19 +42490,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "btn btn-success btn-md",
-        attrs: { href: "/authors/list", role: "button" }
-      },
-      [_vm._v("Author List "), _c("i", { staticClass: "fas fa-list" })]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -42543,7 +42542,30 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("section", { staticClass: "content-header" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row mb-2" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("h1", [
+              _vm._v("\n            Author List\n            "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-success btn-md",
+                  attrs: { href: _vm.url + "/authors/create", role: "button" }
+                },
+                [
+                  _vm._v("Create New "),
+                  _c("i", { staticClass: "fas fa-plus-circle" })
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c("section", { staticClass: "content" }, [
       _c("div", { staticClass: "container-fluid" }, [
@@ -42581,7 +42603,8 @@ var render = function() {
                                 {
                                   staticClass: "btn btn-warning",
                                   attrs: {
-                                    href: "/authors/edit/" + author.id,
+                                    href:
+                                      _vm.url + "/authors/edit/" + author.id,
                                     role: "button"
                                   }
                                 },
@@ -42628,37 +42651,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "content-header" }, [
-      _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row mb-2" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("h1", [
-              _vm._v("\n            Author List\n            "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-success btn-md",
-                  attrs: { href: "/authors/create", role: "button" }
-                },
-                [
-                  _vm._v("Create New "),
-                  _c("i", { staticClass: "fas fa-plus-circle" })
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
-              _c("li", { staticClass: "breadcrumb-item" }, [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "breadcrumb-item active" }, [
-                _vm._v("Author List")
-              ])
-            ])
-          ])
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
+        _c("li", { staticClass: "breadcrumb-item" }, [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "breadcrumb-item active" }, [
+          _vm._v("Author List")
         ])
       ])
     ])
@@ -43006,7 +43006,27 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("section", { staticClass: "content-header" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row mb-2" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("h1", [
+              _vm._v("Create New Song "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-success btn-md",
+                  attrs: { href: _vm.url + "/songs/list", role: "button" }
+                },
+                [_vm._v("Song List "), _c("i", { staticClass: "fas fa-list" })]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c("section", { staticClass: "content" }, [
       _c("div", { staticClass: "container-fluid" }, [
@@ -43460,34 +43480,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "content-header" }, [
-      _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row mb-2" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("h1", [
-              _vm._v("Create New Song "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-success btn-md",
-                  attrs: { href: "/songs/list", role: "button" }
-                },
-                [_vm._v("Song List "), _c("i", { staticClass: "fas fa-list" })]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
-              _c("li", { staticClass: "breadcrumb-item" }, [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "breadcrumb-item active" }, [
-                _vm._v("Create Song")
-              ])
-            ])
-          ])
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
+        _c("li", { staticClass: "breadcrumb-item" }, [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "breadcrumb-item active" }, [
+          _vm._v("Create Song")
         ])
       ])
     ])
@@ -43542,11 +43542,18 @@ var render = function() {
           _c("div", { staticClass: "col-sm-6" }, [
             _c("h1", [
               _vm._v(_vm._s(_vm.form_song_name_mm) + "\n               "),
-              _vm._m(0)
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-success btn-md",
+                  attrs: { href: _vm.url + "/songs/list", role: "button" }
+                },
+                [_vm._v("Song List "), _c("i", { staticClass: "fas fa-list" })]
+              )
             ])
           ]),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(0)
         ])
       ])
     ]),
@@ -43885,6 +43892,13 @@ var render = function() {
                             staticClass: "preview-img img-fluid",
                             attrs: { src: _vm.form_file }
                           })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.form_new_file
+                        ? _c("img", {
+                            staticClass: "preview-img img-fluid",
+                            attrs: { src: _vm.form_new_file }
+                          })
                         : _vm._e()
                     ]),
                     _vm._v(" "),
@@ -43992,7 +44006,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(2)
+                  _vm._m(1)
                 ]
               )
             ])
@@ -44003,19 +44017,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "btn btn-success btn-md",
-        attrs: { href: "/songs/list", role: "button" }
-      },
-      [_vm._v("Song List "), _c("i", { staticClass: "fas fa-list" })]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -44068,7 +44069,30 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("section", { staticClass: "content-header" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row mb-2" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("h1", [
+              _vm._v("\n            Song List\n            "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-success btn-md",
+                  attrs: { href: _vm.url + "/songs/create", role: "button" }
+                },
+                [
+                  _vm._v("Create New "),
+                  _c("i", { staticClass: "fas fa-plus-circle" })
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c("section", { staticClass: "content" }, [
       _c("div", { staticClass: "container-fluid" }, [
@@ -44132,7 +44156,7 @@ var render = function() {
                                 {
                                   staticClass: "btn btn-warning",
                                   attrs: {
-                                    href: "/songs/edit/" + song.id,
+                                    href: _vm.url + "/songs/edit/" + song.id,
                                     role: "button"
                                   }
                                 },
@@ -44179,37 +44203,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "content-header" }, [
-      _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row mb-2" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("h1", [
-              _vm._v("\n            Song List\n            "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-success btn-md",
-                  attrs: { href: "/songs/create", role: "button" }
-                },
-                [
-                  _vm._v("Create New "),
-                  _c("i", { staticClass: "fas fa-plus-circle" })
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
-              _c("li", { staticClass: "breadcrumb-item" }, [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "breadcrumb-item active" }, [
-                _vm._v("Song List")
-              ])
-            ])
-          ])
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
+        _c("li", { staticClass: "breadcrumb-item" }, [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "breadcrumb-item active" }, [
+          _vm._v("Song List")
         ])
       ])
     ])

@@ -2,6 +2,6 @@
 
 @section('content')
 <div id="app">
-    <author-component baseUrl="{{config('vars.server_base_url')}}"></author-component>
+    <author-component url="{{config('vars.server_base_url')}}"></author-component>
 </div>
 @endsection

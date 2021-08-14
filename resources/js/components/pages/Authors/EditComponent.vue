@@ -6,7 +6,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>{{ form_author_name_mm }}
-                 <a class="btn btn-success btn-md" href="/authors/list" role="button">Author List <i class="fas fa-list"></i></a>
+                 <a class="btn btn-success btn-md" :href="url+'/authors/list'" role="button">Author List <i class="fas fa-list"></i></a>
             </h1>
           </div>
           <div class="col-sm-6">
@@ -117,7 +117,7 @@
 <script>
 import axios from "axios";
 export default {
-  props: ["id","baseURL"],
+  props: ["id","url"],
   data: function () {
     return {
       errors: {},
@@ -153,7 +153,7 @@ export default {
     },
   },
   mounted() {
-    axios.defaults.baseURL = this.baseUrl;
+    axios.defaults.baseURL = this.url;
     axios
       .get(`/authors/get/${this.id}`)
       .then((res) => {

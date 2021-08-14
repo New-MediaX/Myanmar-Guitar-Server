@@ -59,7 +59,7 @@
 <script>
 import axios from "axios";
 export default {
-  props: ["baseUrl"],
+  props: ['url'],
   data: function () {
     return {
       username: "",
@@ -81,7 +81,7 @@ export default {
             .then((res) => {
               if (res.data == "Success") {
                 this.status = 1;
-                window.location = "/home";
+                window.location = `${this.url}/home`;
               } else {
                 this.status = 2;
               }
@@ -94,7 +94,7 @@ export default {
     },
   },
   mounted() {
-    axios.defaults.baseURL = this.baseUrl;
+    axios.defaults.baseURL = this.url;
   }
 };
 </script>

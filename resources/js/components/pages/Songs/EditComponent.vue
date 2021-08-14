@@ -6,7 +6,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>{{ form_song_name_mm }}
-                 <a class="btn btn-success btn-md" href="/songs/list" role="button">Song List <i class="fas fa-list"></i></a>
+                 <a class="btn btn-success btn-md" :href="url+'/songs/list'" role="button">Song List <i class="fas fa-list"></i></a>
             </h1>
           </div>
           <div class="col-sm-6">
@@ -154,8 +154,13 @@
                   </div>
                   <div>
                     <img
-                      v-if="form_file"
+                      v-if="form_file "
                       :src="form_file"
+                      class="preview-img img-fluid"
+                    />
+                    <img
+                      v-if="form_new_file "
+                      :src="form_new_file"
                       class="preview-img img-fluid"
                     />
                   </div>
@@ -206,7 +211,7 @@
 <script>
 import axios from "axios";
 export default {
-  props: ["id","baseURL"],
+  props: ["id","url"],
   data: function () {
     return {
       authors: [],
@@ -217,6 +222,7 @@ export default {
       form_song_name_en: "",
       form_song_name_mm: "",
       form_file: "",
+      form_new_file: "",
       form_is_new: false,
       form_is_popular: false,
       status: 0,
@@ -236,6 +242,7 @@ export default {
         is_new: this.form_is_new,
         is_popular: this.form_is_popular,
         image: this.form_file,
+        new_image: this.form_new_file
       };
 
       this.errors = {};
@@ -261,7 +268,8 @@ export default {
       if (typeof FileReader === "function") {
         const reader = new FileReader();
         reader.onload = (event) => {
-          this.form_file = event.target.result;
+          this.form_new_file = event.target.result;
+          this.form_file = "";
         };
         reader.readAsDataURL(file);
       } else {
@@ -270,7 +278,7 @@ export default {
     },
   },
   mounted() {
-    axios.defaults.baseURL = this.baseUrl;
+    axios.defaults.baseURL = this.url;
     axios
       .get(`/songs/get/${this.id}`)
       .then((res) => {
@@ -291,7 +299,7 @@ export default {
     axios
       .get("/albums/all")
       .then((res) => {
-        this.albums = res.data;
+        this.albums = res.data.data;
       })
       .catch((err) => {
         console.log("error getting albums");
@@ -300,7 +308,7 @@ export default {
     axios
       .get("/authors/all")
       .then((res) => {
-        this.authors = res.data;
+        this.authors = res.data.data;
       })
       .catch((err) => {
         console.log("error getting authors");

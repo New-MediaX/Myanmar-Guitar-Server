@@ -87,7 +87,7 @@
 <script>
 import axios from "axios";
 export default {
-  props: ["baseUrl"],
+  props: ["url"],
   data: function () {
     return {
       appName: "",
@@ -97,7 +97,7 @@ export default {
     };
   },
   mounted() {
-    axios.defaults.baseURL = this.baseUrl;
+    axios.defaults.baseURL = this.url;
     axios
       .get("/getAppName")
       .then((res) => (this.appName = res.data))

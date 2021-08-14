@@ -9,7 +9,7 @@
               Author List
               <a
                 class="btn btn-success btn-md"
-                href="/authors/create"
+                :href="url+'/authors/create'"
                 role="button"
                 >Create New <i class="fas fa-plus-circle"></i
               ></a>
@@ -54,7 +54,7 @@
                       <td>
                         <a
                           class="btn btn-warning"
-                          :href="'/authors/edit/' + author.id"
+                          :href="url+'/authors/edit/' + author.id"
                           role="button"
                           ><i class="fas fa-edit"></i
                         ></a>
@@ -97,7 +97,7 @@ import "sweetalert2/dist/sweetalert2.min.css";
 Vue.use(VueSweetalert2);
 
 export default {
-  props: ["baseUrl"],
+  props: ["url"],
   data: function () {
     return {
       authors: {},
@@ -153,7 +153,7 @@ export default {
     }
   },
   mounted() {
-    axios.defaults.baseURL = this.baseUrl;
+    axios.defaults.baseURL = this.url;
     this.getAuthors();
   },
 };

@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Create New Song <a class="btn btn-success btn-md" href="/songs/list" role="button">Song List <i class="fas fa-list"></i></a></h1>
+            <h1>Create New Song <a class="btn btn-success btn-md" :href="url+'/songs/list'" role="button">Song List <i class="fas fa-list"></i></a></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -204,7 +204,7 @@
 <script>
 import axios from "axios";
 export default {
-  props: ["baseUrl"],
+  props: ["url"],
   data: function () {
     return {
       authors: [],
@@ -278,7 +278,7 @@ export default {
     },
   },
   mounted() {
-    axios.defaults.baseURL = this.baseUrl;
+    axios.defaults.baseURL = this.url;
     axios
       .get("/albums/all")
       .then((res) => {

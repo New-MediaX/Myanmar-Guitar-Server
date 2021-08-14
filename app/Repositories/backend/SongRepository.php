@@ -53,12 +53,13 @@ class SongRepository {
     public function update($inputs,$id)
     {
         $song = Song::findOrFail($id);
-        $old_img = $song->file;
+        $old_image = "";
+        $new_image = "";
 
-        $file = $song->file;
-        if($old_img !== $inputs['image'])
+        if($inputs['new_image'] !== "")
         {
-            $file = $this->commonRepo->UploadImage($inputs['image']);
+            $old_image = $song->file;
+            $new_image = $this->commonRepo->UploadImage($inputs['new_image']);
         }
 
         $data = [
@@ -66,22 +67,24 @@ class SongRepository {
             'album_id' => $inputs['album_id'],
             'song_name_en' => $inputs['song_name_en'],
             'song_name_mm' => $inputs['song_name_mm'],
-            'file' => $file,
             'is_new' => $inputs['is_new'],
             'is_popular' => $inputs['is_popular'],
         ];
 
+        if($inputs['new_image'] !== "")
+        {
+            $data["file"] = $new_image;
+        }
+
         try {
             $song->update($data);
-            
-            if($old_img !== $inputs['image'])
+            if($inputs['new_image'] !== "")
             {
-                $this->commonRepo->deleteImage($old_img);
+                $this->commonRepo->deleteImage($old_image);
             }
             return "Success";
         } catch (\Exception $e) {
             dd($e);
-            $this->commonRepo->deleteImage($file);
             return "Error Updating New Song!";
         }
     }
@@ -89,8 +92,9 @@ class SongRepository {
     public function delete($id)
     {
         $song = Song::findOrFail($id);
-
+        
         try {
+            $this->commonRepo->deleteImage($song->file);
             $song->delete();
             return "Success";
         } catch (\Exception $e) {

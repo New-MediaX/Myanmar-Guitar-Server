@@ -30,7 +30,7 @@
 
   <body class="hold-transition login-page">
       <div id="app">
-          <login-component baseUrl="{{config('vars.server_base_url')}}"></login-component>
+          <login-component url="{{config('vars.server_base_url')}}" id="1" url="{{config('vars.server_base_url')}}"></login-component>
       </div>
 
       <!-- jQuery -->

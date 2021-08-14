@@ -51,13 +51,11 @@ class CommonRepository
     }
     public function deleteImage($image_path){
 
-        $realPath = str_replace($_SERVER['HTTP_ORIGIN'],"",$image_path);
-        
-        if(File::exists(public_path($realPath))){
-            File::delete(public_path($realPath));
-        }
-        
+        $realName = basename($image_path);
 
+        if(Storage::disk('public')->exists('songs/'.$realName)){
+            Storage::disk('public')->delete('songs/'.$realName);
+        }
     }
    
 }
