@@ -7,25 +7,25 @@
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <title>{{ config('app.name', 'Laravel') }} | Log In</title>
       <!-- Favicon -->
-      <link rel="icon" href="{{ url('images/favicon.png') }}">
+      <link rel="icon" href="{{ url('public/images/favicon.png') }}">
       <!-- Google Font: Source Sans Pro -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
       <!-- Font Awesome -->
-      <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}" />
+      <link rel="stylesheet" href="{{asset('public/plugins/fontawesome-free/css/all.min.css')}}" />
       <!-- icheck bootstrap -->
-      <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}" />
+      <link rel="stylesheet" href="{{asset('public/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}" />
       <!-- Theme style -->
-      <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}" />
+      <link rel="stylesheet" href="{{asset('public/dist/css/adminlte.min.css')}}" />
 
       <!-- Scripts -->
-      <script src="{{ asset('js/app.js') }}" defer></script>
+      <script src="{{ asset('public/js/app.js') }}" defer></script>
 
       <!-- Fonts -->
       <link rel="dns-prefetch" href="//fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
       <!-- Styles -->
-      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+      <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
   </head>
 
   <body class="hold-transition login-page">
@@ -34,11 +34,11 @@
       </div>
 
       <!-- jQuery -->
-      <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+      <script src="{{asset('public/plugins/jquery/jquery.min.js')}}"></script>
       <!-- Bootstrap 4 -->
-      <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+      <script src="{{asset('public/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
       <!-- AdminLTE App -->
-      <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
+      <script src="{{asset('public/dist/js/adminlte.min.js')}}"></script>
   </body>
 
   </html>

@@ -22,7 +22,7 @@ class CommonRepository
 
             Storage::disk('local')->put($path, $img->encode());
 
-            $url = asset('storage/songs/' . $name);
+            $url = asset('public/storage/songs/' . $name);
 
             return $url;
         } else {
@@ -42,7 +42,7 @@ class CommonRepository
 
             Storage::disk('local')->put($path, $img->encode());
 
-            $url = asset('storage/songs/' . $name);
+            $url = asset('public/storage/songs/' . $name);
 
             return $url;
         } else {
