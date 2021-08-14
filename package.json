@@ -25,6 +25,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "laravel-vue-pagination": "^2.3.1",
         "vue-advanced-cropper": "^1.8.2",
         "vue-sweetalert2": "^5.0.2",
         "webpack": "^5.49.0"

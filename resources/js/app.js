@@ -26,7 +26,14 @@ Vue.component('song-component' , require('./components/pages/Songs/ListComponent
 Vue.component('create-song-component' , require('./components/pages/Songs/CreateComponent.vue').default);
 Vue.component('edit-song-component' , require('./components/pages/Songs/EditComponent.vue').default);
 
+
+Vue.component('album-component' , require('./components/pages/Albums/ListComponent.vue').default);
+Vue.component('create-album-component' , require('./components/pages/Albums/CreateComponent.vue').default);
+Vue.component('edit-album-component' , require('./components/pages/Albums/EditComponent.vue').default);
+
 Vue.component('author-component' , require('./components/pages/Authors/ListComponent.vue').default);
+Vue.component('create-author-component' , require('./components/pages/Authors/CreateComponent.vue').default);
+Vue.component('edit-author-component' , require('./components/pages/Authors/EditComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

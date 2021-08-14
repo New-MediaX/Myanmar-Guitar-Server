@@ -36,7 +36,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Songs</span>
                 <span class="info-box-number">
-                  5000
+                  {{songs}}
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -52,12 +52,29 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Authors</span>
-                <span class="info-box-number">452</span>
+                <span class="info-box-number">{{authors}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
           </div>
+          <div class="col-12 col-sm-6 col-md-6">
+            <div class="info-box">
+              <span class="info-box-icon bg-primary elevation-1"
+                ><i class="fas fa-compact-disc"></i
+              ></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Albums</span>
+                <span class="info-box-number">
+                  {{albums}}
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
           <!-- /.col -->
         </div>
         <!-- /.row -->
@@ -72,11 +89,17 @@ import axios from 'axios';
 export default {
     data: function() {
         return {
-            appName : ""
+            appName : "",
+            songs : 0,
+            albums : 0,
+            authors : 0
         }
     },
     mounted() {
         axios.get('/getAppName').then((res) => this.appName = res.data).catch((err) => console.log("error"))
+        axios.get('/songs/all').then((res) => this.songs = res.data.data.length).catch((err) => console.log("error getting songs"))
+        axios.get('/albums/all').then((res) => this.albums = res.data.data.length).catch((err) => console.log("error getting albums"))
+        axios.get('/authors/all').then((res) => this.authors = res.data.data.length).catch((err) => console.log("error getting authors"))
     }
 }
 </script>

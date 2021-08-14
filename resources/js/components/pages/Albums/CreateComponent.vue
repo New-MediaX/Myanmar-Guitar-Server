@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Create New Author <a class="btn btn-success btn-md" href="/authors/list" role="button">Author List <i class="fas fa-list"></i></a></h1>
+            <h1>Create New Album <a class="btn btn-success btn-md" href="/albums/list" role="button">Album List <i class="fas fa-list"></i></a></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Create Author</li>
+              <li class="breadcrumb-item active">Create Album</li>
             </ol>
           </div>
         </div>
@@ -27,7 +27,7 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Create New Author</h3>
+                <h3 class="card-title">Create New Album</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -48,21 +48,21 @@
                     Create Error!
                   </div>
                   <div class="form-group">
-                    <label for="author_name_en">Author Name (EN)</label>
+                    <label for="album_name_en">Album Name (EN)</label>
                     <input
                       type="text"
                       :class="
-                        errors.author_name_en
+                        errors.album_name_en
                           ? 'form-control is-invalid'
                           : 'form-control'
                       "
-                      id="author_name_en"
-                      placeholder="Author Name"
-                      v-model="form_author_name_en"
+                      id="album_name_en"
+                      placeholder="album Name"
+                      v-model="form_album_name_en"
                     />
                     <div
                       class="invalid-feedback text-sm text-danger"
-                      v-for="(err, index) in errors.author_name_en"
+                      v-for="(err, index) in errors.album_name_en"
                       :key="index"
                     >
                       {{ err }}
@@ -70,21 +70,21 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="author_name_mm">Author Name (MM)</label>
+                    <label for="album_name_mm">Album Name (MM)</label>
                     <input
                       type="text"
                       :class="
-                        errors.author_name_mm
+                        errors.album_name_mm
                           ? 'form-control is-invalid'
                           : 'form-control'
                       "
-                      id="author_name_mm"
-                      placeholder="Author Name"
-                      v-model="form_author_name_mm"
+                      id="album_name_mm"
+                      placeholder="album Name"
+                      v-model="form_album_name_mm"
                     />
                     <div
                       class="invalid-feedback text-sm text-danger"
-                      v-for="(err, index) in errors.author_name_mm"
+                      v-for="(err, index) in errors.album_name_mm"
                       :key="index"
                     >
                       {{ err }}
@@ -95,7 +95,7 @@
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary btn-block">
-                    Create New Author
+                    Create New Album
                   </button>
                 </div>
               </form>
@@ -118,8 +118,8 @@ export default {
   data: function () {
     return {
       errors: {},
-      form_author_name_en: "",
-      form_author_name_mm: "",
+      form_album_name_en: "",
+      form_album_name_mm: "",
       status: 0,
     };
   },
@@ -128,14 +128,14 @@ export default {
       e.preventDefault();
 
       const data = {
-        author_name_en: this.form_author_name_en,
-        author_name_mm: this.form_author_name_mm,
+        album_name_en: this.form_album_name_en,
+        album_name_mm: this.form_album_name_mm,
       };
 
       this.errors = {};
 
       axios
-        .post("/authors/create", data)
+        .post("/albums/create", data)
         .then((res) => {
           if(res.data == "Success")
           {
@@ -150,8 +150,8 @@ export default {
         });
     },
     clearInputs() {
-      this.form_author_name_en = "";
-      this.form_author_name_mm = "";
+      this.form_album_name_en = "";
+      this.form_album_name_mm = "";
     },
   },
   mounted() {

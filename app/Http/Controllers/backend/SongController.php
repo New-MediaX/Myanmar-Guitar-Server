@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Models\Song;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\songs\CreateSongRequest;
 use App\Repositories\backend\SongRepository;
+use Illuminate\Http\Request;
 
 class SongController extends Controller
 {
@@ -20,9 +19,9 @@ class SongController extends Controller
         return view('app.songs.index');
     }
 
-    public function getAll()
+    public function getAll(Request $request)
     {
-        return $this->songRepo->getAll();
+        return $this->songRepo->getAll($request);
     }
 
     public function create()

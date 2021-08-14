@@ -23,6 +23,6 @@ class Song extends Model
 
     public function album()
     {
-        return $this->hasOne(Author::class,'id','album_id');
+        return $this->hasOne(Album::class,'id','album_id');
     }
 }

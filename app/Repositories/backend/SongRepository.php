@@ -12,7 +12,7 @@ class SongRepository {
 
     public function getAll()
     {
-        $songs = Song::all();
+        $songs = Song::paginate(20);
         foreach ($songs as $song) {
             $song->author;
             $song->album;
