@@ -2,6 +2,6 @@
 
 @section('content')
 <div id="app">
-    <edit-author-component id="{{ request('id') }}"></edit-author-component>
+    <edit-author-component baseUrl="{{config('vars.server_base_url')}}" id="{{ request('id') }}"></edit-author-component>
 </div>
 @endsection

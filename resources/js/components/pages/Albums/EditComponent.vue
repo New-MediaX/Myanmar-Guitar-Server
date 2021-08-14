@@ -117,7 +117,7 @@
 <script>
 import axios from "axios";
 export default {
-  props: ["id"],
+  props: ["id","baseURL"],
   data: function () {
     return {
       errors: {},
@@ -153,6 +153,7 @@ export default {
     },
   },
   mounted() {
+    axios.defaults.baseURL = this.baseUrl;
     axios
       .get(`/albums/get/${this.id}`)
       .then((res) => {

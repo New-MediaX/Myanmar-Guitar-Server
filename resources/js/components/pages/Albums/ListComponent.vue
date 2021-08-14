@@ -98,6 +98,7 @@ import "sweetalert2/dist/sweetalert2.min.css";
 Vue.use(VueSweetalert2);
 
 export default {
+  props: ["baseUrl"],
   data: function () {
     return {
       albums: {},
@@ -153,6 +154,7 @@ export default {
     }
   },
   mounted() {
+    axios.defaults.baseURL = this.baseUrl;
     this.getAlbums();
   },
 };

@@ -204,6 +204,7 @@
 <script>
 import axios from "axios";
 export default {
+  props: ["baseUrl"],
   data: function () {
     return {
       authors: [],
@@ -277,10 +278,11 @@ export default {
     },
   },
   mounted() {
+    axios.defaults.baseURL = this.baseUrl;
     axios
       .get("/albums/all")
       .then((res) => {
-        this.albums = res.data;
+        this.albums = res.data.data;
       })
       .catch((err) => {
         console.log("error getting albums");
@@ -289,7 +291,7 @@ export default {
     axios
       .get("/authors/all")
       .then((res) => {
-        this.authors = res.data;
+        this.authors = res.data.data;
       })
       .catch((err) => {
         console.log("error getting authors");

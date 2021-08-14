@@ -1963,6 +1963,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["baseUrl"],
   data: function data() {
     return {
       errors: {},
@@ -1997,7 +1998,9 @@ __webpack_require__.r(__webpack_exports__);
       this.form_album_name_mm = "";
     }
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
+  }
 });
 
 /***/ }),
@@ -2133,7 +2136,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["id"],
+  props: ["id", "baseURL"],
   data: function data() {
     return {
       errors: {},
@@ -2167,6 +2170,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this2 = this;
 
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/albums/get/".concat(this.id)).then(function (res) {
       if (res) {
         _this2.form_album_name_en = res.data.album_name_en;
@@ -2293,6 +2297,7 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
 
 Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["baseUrl"],
   data: function data() {
     return {
       albums: {}
@@ -2341,6 +2346,7 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
     }
   },
   mounted: function mounted() {
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
     this.getAlbums();
   }
 });
@@ -2476,6 +2482,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["baseUrl"],
   data: function data() {
     return {
       errors: {},
@@ -2510,7 +2517,9 @@ __webpack_require__.r(__webpack_exports__);
       this.form_author_name_mm = "";
     }
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
+  }
 });
 
 /***/ }),
@@ -2646,7 +2655,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["id"],
+  props: ["id", "baseURL"],
   data: function data() {
     return {
       errors: {},
@@ -2680,6 +2689,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this2 = this;
 
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/authors/get/".concat(this.id)).then(function (res) {
       if (res) {
         _this2.form_author_name_en = res.data.author_name_en;
@@ -2806,6 +2816,7 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
 
 Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["baseUrl"],
   data: function data() {
     return {
       authors: {}
@@ -2854,6 +2865,7 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
     }
   },
   mounted: function mounted() {
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
     this.getAuthors();
   }
 });
@@ -2961,6 +2973,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["baseUrl"],
   data: function data() {
     return {
       appName: "",
@@ -2972,22 +2985,23 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/getAppName').then(function (res) {
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/getAppName").then(function (res) {
       return _this.appName = res.data;
     })["catch"](function (err) {
       return console.log("error");
     });
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/songs/all').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/songs/all").then(function (res) {
       return _this.songs = res.data.data.length;
     })["catch"](function (err) {
       return console.log("error getting songs");
     });
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/albums/all').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/albums/all").then(function (res) {
       return _this.albums = res.data.data.length;
     })["catch"](function (err) {
       return console.log("error getting albums");
     });
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/authors/all').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/authors/all").then(function (res) {
       return _this.authors = res.data.data.length;
     })["catch"](function (err) {
       return console.log("error getting authors");
@@ -3070,6 +3084,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["baseUrl"],
   data: function data() {
     return {
       username: "",
@@ -3102,6 +3117,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     }
+  },
+  mounted: function mounted() {
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
   }
 });
 
@@ -3325,6 +3343,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["baseUrl"],
   data: function data() {
     return {
       authors: [],
@@ -3401,13 +3420,14 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this3 = this;
 
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/albums/all").then(function (res) {
-      _this3.albums = res.data;
+      _this3.albums = res.data.data;
     })["catch"](function (err) {
       console.log("error getting albums");
     });
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/authors/all").then(function (res) {
-      _this3.authors = res.data;
+      _this3.authors = res.data.data;
     })["catch"](function (err) {
       console.log("error getting authors");
     });
@@ -3636,7 +3656,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["id"],
+  props: ["id", "baseURL"],
   data: function data() {
     return {
       authors: [],
@@ -3704,6 +3724,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this3 = this;
 
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/songs/get/".concat(this.id)).then(function (res) {
       if (res) {
         _this3.form_author_id = res.data.author_id;
@@ -3857,6 +3878,7 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
 
 Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["baseUrl"],
   data: function data() {
     return {
       songs: {}
@@ -3905,6 +3927,7 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
     }
   },
   mounted: function mounted() {
+    (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.baseUrl;
     this.getSongs();
   }
 });
@@ -42693,7 +42716,7 @@ var render = function() {
         _c("div", { staticClass: "row mb-2" }, [
           _c("div", { staticClass: "col-sm-6" }, [
             _c("h1", { staticClass: "m-0" }, [
-              _vm._v(" " + _vm._s(_vm.appName) + " | Dashboard")
+              _vm._v(_vm._s(_vm.appName) + " | Dashboard")
             ])
           ]),
           _vm._v(" "),

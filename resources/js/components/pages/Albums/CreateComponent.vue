@@ -115,6 +115,7 @@
 <script>
 import axios from "axios";
 export default {
+  props: ["baseUrl"],
   data: function () {
     return {
       errors: {},
@@ -155,7 +156,7 @@ export default {
     },
   },
   mounted() {
-
+    axios.defaults.baseURL = this.baseUrl;
   },
 };
 </script>

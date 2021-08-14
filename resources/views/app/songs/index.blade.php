@@ -2,6 +2,6 @@
 
 @section('content')
 <div id="app">
-    <song-component></song-component>
+    <song-component baseUrl="{{config('vars.server_base_url')}}"></song-component>
 </div>
 @endsection
