@@ -25,4 +25,9 @@ class Song extends Model
     {
         return $this->hasOne(Album::class,'id','album_id');
     }
+
+    protected $casts = [
+        'is_new' => 'boolean',
+        'is_popular' => 'boolean',
+    ];
 }

@@ -53,13 +53,11 @@ class SongRepository {
     public function update($inputs,$id)
     {
         $song = Song::findOrFail($id);
-        $old_image = "";
         $new_image = "";
-
-        if($inputs['new_image'] !== "")
+        if($inputs['new_image'] !== null)
         {
-            $old_image = $song->file;
             $new_image = $this->commonRepo->UploadImage($inputs['new_image']);
+            dd($new_image);
         }
 
         $data = [
@@ -71,16 +69,18 @@ class SongRepository {
             'is_popular' => $inputs['is_popular'],
         ];
 
-        if($inputs['new_image'] !== "")
+        if($inputs['new_image'] !== null)
         {
             $data["file"] = $new_image;
+        } else {
+            $data["file"] = $song->file;
         }
 
         try {
             $song->update($data);
-            if($inputs['new_image'] !== "")
+            if($inputs['new_image'] !== null)
             {
-                $this->commonRepo->deleteImage($old_image);
+                $this->commonRepo->deleteImage($song->file);
             }
             return "Success";
         } catch (\Exception $e) {
