@@ -35,6 +35,8 @@ Vue.component('author-component' , require('./components/pages/Authors/ListCompo
 Vue.component('create-author-component' , require('./components/pages/Authors/CreateComponent.vue').default);
 Vue.component('edit-author-component' , require('./components/pages/Authors/EditComponent.vue').default);
 
+Vue.component('token-component' , require('./components/pages/Token/EditComponent.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

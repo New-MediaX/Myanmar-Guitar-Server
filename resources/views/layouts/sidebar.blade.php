@@ -13,8 +13,8 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item">
-                    <a class="nav-link {{ set_active(['home']) }}"  href="{{ route('home') }}">
+                <li class="nav-item">
+                    <a class="nav-link {{ set_active(['home']) }}" href="{{ route('home') }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ set_active(['albums*']) }}"  href="{{ route('albums') }}">
+                    <a class="nav-link {{ set_active(['albums*']) }}" href="{{ route('albums') }}">
                         <i class="nav-icon fas fa-compact-disc"></i>
                         <p>
                             Albums
@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ set_active(['authors*']) }}"  href="{{ route('authors') }}">
+                    <a class="nav-link {{ set_active(['authors*']) }}" href="{{ route('authors') }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Authors
@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ set_active(['songs*']) }}"  href="{{ route('songs') }}">
+                    <a class="nav-link {{ set_active(['songs*']) }}" href="{{ route('songs') }}">
                         <i class="nav-icon fas fa-music"></i>
                         <p>
                             Songs
@@ -55,15 +55,17 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a class="nav-link">
-                                <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
-                                <p>Sign Out</p>
+                            <a class="nav-link {{ set_active(['token*']) }}" href="{{ route('token') }}">
+                                <i class="nav-icon fas fa-key"></i>
+                                <p>
+                                    API Token
+                                </p>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"  href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>

@@ -55,6 +55,12 @@ Route::group(['middleware' => 'auth'] , function() {
         Route::put('/edit/{id}' , [App\Http\Controllers\backend\AlbumController::class, 'update']);
         Route::delete('/delete/{id}' , [App\Http\Controllers\backend\AlbumController::class, 'delete']);
     });
+
+    Route::group(['prefix' => 'token'] , function() {
+        Route::get('/getToken' , [App\Http\Controllers\backend\TokenController::class, 'get']);
+        Route::get('/edit' , [App\Http\Controllers\backend\TokenController::class, 'edit'])->name('token');
+        Route::put('/edit' , [App\Http\Controllers\backend\TokenController::class, 'update']);
+    });
 });
 
 Route::group(['prefix' => 'auth'] , function() {
