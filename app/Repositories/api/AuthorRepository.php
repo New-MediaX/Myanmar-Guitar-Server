@@ -19,7 +19,7 @@ class AuthorRepository {
         $search_term = $request['searchTerm'];
         if($search_term == "" | $search_term == null)
         {
-            return [];
+            return Author::all();
         }
         
         $authors = Author::where("author_name_en","LIKE","%".$search_term."%")

@@ -27,6 +27,7 @@ Route::group(['prefix' => 'v1','middleware' => ['apiauth','throttle:60,1']] , fu
         Route::get('/getNewSongs' , [App\Http\Controllers\api\SongController::class, 'getNewSongs']);
         Route::get('/getSongsByAlbum/{albumId}' , [App\Http\Controllers\api\SongController::class, 'getSongsByAlbum']);
         Route::get('/getSongsByAuthor/{authorId}' , [App\Http\Controllers\api\SongController::class, 'getSongsByAuthor']);
+        Route::post('/getFavorites' , [App\Http\Controllers\api\SongController::class, 'getFavoriteSongs']);
     });
 
     Route::group(['prefix' => 'albums'] , function() {

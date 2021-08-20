@@ -47,4 +47,9 @@ class SongController extends Controller
     {
         return $this->songRepo->getSongsByAuthor($authorId);
     }
+
+    public function getFavoriteSongs(Request $request)
+    {
+        return $this->songRepo->getFavoriteSongs($request->json()->all());
+    }
 }

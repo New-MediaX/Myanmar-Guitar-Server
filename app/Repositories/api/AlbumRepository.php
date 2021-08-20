@@ -19,7 +19,7 @@ class AlbumRepository {
         $search_term = $request['searchTerm'];
         if($search_term == "" | $search_term == null)
         {
-            return [];
+            return Album::all();
         }
         
         $albums = Album::where("album_name_en","LIKE","%".$search_term."%")
