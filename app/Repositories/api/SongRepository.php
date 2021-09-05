@@ -8,7 +8,9 @@ class SongRepository
 {
     public function get($id)
     {
-        return Song::findOrFail($id);
+        $song = Song::findOrFail($id);
+        $song->update(['view_count' => $song->view_count + 1]);
+        return $song;
     }
 
     public function list()
@@ -46,7 +48,7 @@ class SongRepository
 
     public function getPopular()
     {
-        $songs = Song::where("view_count", ">", "1500")->orderBy("updated_at", "DESC")->get();
+        $songs = Song::where("is_popular", "=", "1")->orderBy("updated_at", "DESC")->take(100)->get();
         $this->getRelations($songs);
 
         return $songs;
