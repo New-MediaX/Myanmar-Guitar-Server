@@ -46,7 +46,7 @@ class SongRepository
 
     public function getPopular()
     {
-        $songs = Song::where("view_count", ">", "1500")->orderBy("updated_at", "DESC")->get();
+        $songs = Song::where("is_popular","=", 1)->orderBy("updated_at", "DESC")->get();
         $this->getRelations($songs);
 
         return $songs;
