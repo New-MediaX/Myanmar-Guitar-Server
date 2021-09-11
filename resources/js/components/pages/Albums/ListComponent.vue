@@ -9,7 +9,7 @@
               Album List
               <a
                 class="btn btn-success btn-md"
-                :href="url+'/albums/create'"
+                :href="url + '/albums/create'"
                 role="button"
                 >Create New <i class="fas fa-plus-circle"></i
               ></a>
@@ -37,6 +37,23 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                <div class="input-group mb-3 offset-md-8 col-md-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search"
+                    v-model="searchTerm"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      @click="search()"
+                      class="btn btn-outline-secondary"
+                      type="button"
+                    >
+                      Search
+                    </button>
+                  </div>
+                </div>
                 <table id="list" class="table table-bordered table-hover">
                   <thead>
                     <tr>
@@ -54,7 +71,7 @@
                       <td>
                         <a
                           class="btn btn-warning"
-                          :href="url+'/albums/edit/' + album.id"
+                          :href="url + '/albums/edit/' + album.id"
                           role="button"
                           ><i class="fas fa-edit"></i
                         ></a>
@@ -70,10 +87,10 @@
                   </tbody>
                 </table>
                 <pagination
-                    :data="albums"
-                    @pagination-change-page="getAlbums"
-                    :limit="20"
-                  ></pagination>
+                  :data="albums"
+                  @pagination-change-page="getAlbums"
+                  :limit="20"
+                ></pagination>
               </div>
               <!-- /.card-body -->
             </div>
@@ -92,7 +109,7 @@
 <script>
 import axios from "axios";
 import VueSweetalert2 from "vue-sweetalert2";
-import settings from "../../../settings.json"
+import settings from "../../../settings.json";
 Vue.component("pagination", require("laravel-vue-pagination"));
 
 import "sweetalert2/dist/sweetalert2.min.css";
@@ -103,6 +120,7 @@ export default {
   data: function () {
     return {
       albums: {},
+      searchTerm: ""
     };
   },
   methods: {
@@ -133,26 +151,34 @@ export default {
                 this.getAlbums();
               })
               .catch((err) => {
-                this.$swal.fire(
-                  "Deleted!",
-                  "Album Deleted Error",
-                  "Error"
-                );
+                this.$swal.fire("Deleted!", "Album Deleted Error", "Error");
               });
           }
         });
     },
-    getAlbums( page = 1)
-    {
+    getAlbums(page = 1) {
       axios
-      .get(settings.albums.list + page)
-      .then((res) => {
-        this.albums = res.data;
-      })
-      .catch((err) => {
-        console.log("error");
-      });
-    }
+        .get(settings.albums.list + page)
+        .then((res) => {
+          this.albums = res.data;
+        })
+        .catch((err) => {
+          console.log("error");
+        });
+    },
+    search() {
+      axios
+        .post(settings.albums.search, { searchTerm: this.searchTerm })
+        .then((res) => {
+          if (res.data.length > 0) {
+            this.albums = res;
+            this.searchTerm = "";
+          }
+        })
+        .catch((error) => {
+          console.log("search error");
+        });
+    },
   },
   mounted() {
     axios.defaults.baseURL = this.url;

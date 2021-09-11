@@ -59,4 +59,9 @@ class SongController extends Controller
     {
         return $this->songRepo->delete($id);
     }
+
+    public function search(Request $request)
+    {
+        return $this->songRepo->search($request);
+    }
 }

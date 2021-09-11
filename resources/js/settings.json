@@ -5,7 +5,8 @@
         "getAll" : "/songs/get-all",
         "create" : "/songs/create",
         "update" : "/songs/edit/",
-        "delete" : "/songs/delete/"
+        "delete" : "/songs/delete/",
+        "search" : "/songs/search"
     },
     "authors" : {
         "get" : "/authors/get/",
@@ -13,7 +14,8 @@
         "getAll" : "/authors/get-all",
         "create" : "/authors/create",
         "update" : "/authors/edit/",
-        "delete" : "/authors/delete/"
+        "delete" : "/authors/delete/",
+        "search" : "/authors/search"
     },
     "albums" : {
         "get" : "/albums/get/",
@@ -21,7 +23,8 @@
         "getAll" : "/albums/get-all",
         "create" : "/albums/create",
         "update" : "/albums/edit/",
-        "delete" : "/albums/delete/"
+        "delete" : "/albums/delete/",
+        "search" : "/albums/search"
     },
     "token" : {
         "get" : "/token/getToken",

@@ -58,4 +58,9 @@ class AuthorController extends Controller
     {
         return $this->authorRepo->delete($id);
     }
+
+    public function search(Request $request)
+    {
+        return $this->authorRepo->search($request);
+    }
 }

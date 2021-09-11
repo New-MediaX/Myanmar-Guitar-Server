@@ -2296,6 +2296,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2306,7 +2323,8 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
   props: ["url"],
   data: function data() {
     return {
-      albums: {}
+      albums: {},
+      searchTerm: ""
     };
   },
   methods: {
@@ -2348,6 +2366,20 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
         _this2.albums = res.data;
       })["catch"](function (err) {
         console.log("error");
+      });
+    },
+    search: function search() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post(_settings_json__WEBPACK_IMPORTED_MODULE_2__.albums.search, {
+        searchTerm: this.searchTerm
+      }).then(function (res) {
+        if (res.data.length > 0) {
+          _this3.albums = res;
+          _this3.searchTerm = "";
+        }
+      })["catch"](function (error) {
+        console.log("search error");
       });
     }
   },
@@ -2821,6 +2853,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2831,7 +2880,8 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
   props: ["url"],
   data: function data() {
     return {
-      authors: {}
+      authors: {},
+      searchTerm: ""
     };
   },
   methods: {
@@ -2873,6 +2923,20 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
         _this2.authors = res.data;
       })["catch"](function (err) {
         console.log("error");
+      });
+    },
+    search: function search() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post(_settings_json__WEBPACK_IMPORTED_MODULE_2__.authors.search, {
+        searchTerm: this.searchTerm
+      }).then(function (res) {
+        if (res.data.length > 0) {
+          _this3.authors = res;
+          _this3.searchTerm = "";
+        }
+      })["catch"](function (error) {
+        console.log("search error");
       });
     }
   },
@@ -3901,6 +3965,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3911,7 +3992,8 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
   props: ["url"],
   data: function data() {
     return {
-      songs: {}
+      songs: {},
+      searchTerm: ""
     };
   },
   methods: {
@@ -3953,6 +4035,20 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
         _this2.songs = res.data;
       })["catch"](function (err) {
         console.log("error");
+      });
+    },
+    search: function search() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post(_settings_json__WEBPACK_IMPORTED_MODULE_2__.songs.search, {
+        searchTerm: this.searchTerm
+      }).then(function (res) {
+        if (res.data.length > 0) {
+          _this3.songs = res;
+          _this3.searchTerm = "";
+        }
+      })["catch"](function (error) {
+        console.log("search error");
       });
     }
   },
@@ -42150,6 +42246,54 @@ var render = function() {
                 { staticClass: "card-body" },
                 [
                   _c(
+                    "div",
+                    { staticClass: "input-group mb-3 offset-md-8 col-md-4" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.searchTerm,
+                            expression: "searchTerm"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", placeholder: "Search" },
+                        domProps: { value: _vm.searchTerm },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.searchTerm = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "input-group-append" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-outline-secondary",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.search()
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                    Search\n                  "
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
                     "table",
                     {
                       staticClass: "table table-bordered table-hover",
@@ -42825,6 +42969,54 @@ var render = function() {
                 "div",
                 { staticClass: "card-body" },
                 [
+                  _c(
+                    "div",
+                    { staticClass: "input-group mb-3 offset-md-8 col-md-4" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.searchTerm,
+                            expression: "searchTerm"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", placeholder: "Search" },
+                        domProps: { value: _vm.searchTerm },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.searchTerm = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "input-group-append" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-outline-secondary",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.search()
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                    Search\n                  "
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
                   _c(
                     "table",
                     {
@@ -44352,6 +44544,54 @@ var render = function() {
                 "div",
                 { staticClass: "card-body" },
                 [
+                  _c(
+                    "div",
+                    { staticClass: "input-group mb-3 offset-md-8 col-md-4" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.searchTerm,
+                            expression: "searchTerm"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", placeholder: "Search" },
+                        domProps: { value: _vm.searchTerm },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.searchTerm = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "input-group-append" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-outline-secondary",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.search()
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                    Search\n                  "
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
                   _c(
                     "table",
                     {
@@ -56860,7 +57100,7 @@ Vue.compile = compileToFunctions;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"songs":{"get":"/songs/get/","list":"/songs/all?page=","getAll":"/songs/get-all","create":"/songs/create","update":"/songs/edit/","delete":"/songs/delete/"},"authors":{"get":"/authors/get/","list":"/authors/all?page=","getAll":"/authors/get-all","create":"/authors/create","update":"/authors/edit/","delete":"/authors/delete/"},"albums":{"get":"/albums/get/","list":"/albums/all?page=","getAll":"/albums/get-all","create":"/albums/create","update":"/albums/edit/","delete":"/albums/delete/"},"token":{"get":"/token/getToken","edit":"/token/edit/"},"general":{"appName":"/getAppName","login":"/auth/login"}}');
+module.exports = JSON.parse('{"songs":{"get":"/songs/get/","list":"/songs/all?page=","getAll":"/songs/get-all","create":"/songs/create","update":"/songs/edit/","delete":"/songs/delete/","search":"/songs/search"},"authors":{"get":"/authors/get/","list":"/authors/all?page=","getAll":"/authors/get-all","create":"/authors/create","update":"/authors/edit/","delete":"/authors/delete/","search":"/authors/search"},"albums":{"get":"/albums/get/","list":"/albums/all?page=","getAll":"/albums/get-all","create":"/albums/create","update":"/albums/edit/","delete":"/albums/delete/","search":"/albums/search"},"token":{"get":"/token/getToken","edit":"/token/edit/"},"general":{"appName":"/getAppName","login":"/auth/login"}}');
 
 /***/ })
 

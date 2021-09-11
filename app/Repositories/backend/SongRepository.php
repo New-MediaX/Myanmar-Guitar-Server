@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Repositories\backend;
+
 use App\Models\Song;
 use App\Repositories\backend\CommonRepository;
 
-class SongRepository {
+class SongRepository
+{
     public function __construct(CommonRepository $commonRepo)
     {
         $this->commonRepo = $commonRepo;
@@ -36,7 +38,7 @@ class SongRepository {
     {
         return Song::find($id);
     }
-    
+
     public function addNew($inputs)
     {
         $file = $this->commonRepo->UploadImage($inputs['image']);
@@ -61,12 +63,11 @@ class SongRepository {
         }
     }
 
-    public function update($inputs,$id)
+    public function update($inputs, $id)
     {
         $song = Song::findOrFail($id);
         $new_image = "";
-        if($inputs['new_image'] !== null)
-        {
+        if ($inputs['new_image'] !== null) {
             $new_image = $this->commonRepo->UploadImage($inputs['new_image']);
             dd($new_image);
         }
@@ -80,8 +81,7 @@ class SongRepository {
             'is_popular' => $inputs['is_popular'],
         ];
 
-        if($inputs['new_image'] !== null)
-        {
+        if ($inputs['new_image'] !== null) {
             $data["file"] = $new_image;
         } else {
             $data["file"] = $song->file;
@@ -89,8 +89,7 @@ class SongRepository {
 
         try {
             $song->update($data);
-            if($inputs['new_image'] !== null)
-            {
+            if ($inputs['new_image'] !== null) {
                 $this->commonRepo->deleteImage($song->file);
             }
             return "Success";
@@ -103,7 +102,7 @@ class SongRepository {
     public function delete($id)
     {
         $song = Song::findOrFail($id);
-        
+
         try {
             $this->commonRepo->deleteImage($song->file);
             $song->delete();
@@ -111,5 +110,30 @@ class SongRepository {
         } catch (\Exception $e) {
             return "Error Deleting New Song!";
         }
+    }
+
+    public function search($request)
+    {
+        $search_term = $request['searchTerm'];
+        if ($search_term == "" | $search_term == null) {
+            $songs = Song::orderBy('updated_at', 'DESC')->get();
+            foreach ($songs as $song) {
+                $song->author;
+                $song->album;
+            }
+
+            return $songs;
+        }
+
+        $songs = Song::where("song_name_en", "LIKE", "%" . $search_term . "%")
+            ->orWhere("song_name_mm", "LIKE", "%" . $search_term . "%")
+            ->get();
+
+        foreach ($songs as $song) {
+            $song->author;
+            $song->album;
+        }
+
+        return $songs;
     }
 }

@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'] , function() {
         Route::get('/edit/{id}' , [App\Http\Controllers\backend\SongController::class, 'edit']);
         Route::put('/edit/{id}' , [App\Http\Controllers\backend\SongController::class, 'update']);
         Route::delete('/delete/{id}' , [App\Http\Controllers\backend\SongController::class, 'delete']);
+        Route::post('/search' , [App\Http\Controllers\backend\SongController::class, 'search']);
     });
 
     Route::group(['prefix' => 'authors'] , function() {
@@ -45,6 +46,7 @@ Route::group(['middleware' => 'auth'] , function() {
         Route::get('/edit/{id}' , [App\Http\Controllers\backend\AuthorController::class, 'edit']);
         Route::put('/edit/{id}' , [App\Http\Controllers\backend\AuthorController::class, 'update']);
         Route::delete('/delete/{id}' , [App\Http\Controllers\backend\AuthorController::class, 'delete']);
+        Route::post('/search' , [App\Http\Controllers\backend\AuthorController::class, 'search']);
     });
 
     Route::group(['prefix' => 'albums'] , function() {
@@ -57,6 +59,7 @@ Route::group(['middleware' => 'auth'] , function() {
         Route::get('/edit/{id}' , [App\Http\Controllers\backend\AlbumController::class, 'edit']);
         Route::put('/edit/{id}' , [App\Http\Controllers\backend\AlbumController::class, 'update']);
         Route::delete('/delete/{id}' , [App\Http\Controllers\backend\AlbumController::class, 'delete']);
+        Route::post('/search' , [App\Http\Controllers\backend\AlbumController::class, 'search']);
     });
 
     Route::group(['prefix' => 'token'] , function() {

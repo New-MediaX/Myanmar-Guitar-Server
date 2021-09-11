@@ -58,4 +58,9 @@ class AlbumController extends Controller
     {
         return $this->albumRepo->delete($id);
     }
+
+    public function search(Request $request)
+    {
+        return $this->albumRepo->search($request);
+    }
 }
