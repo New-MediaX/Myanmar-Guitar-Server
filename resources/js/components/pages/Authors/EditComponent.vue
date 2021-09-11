@@ -141,7 +141,7 @@ export default {
       this.errors = {};
 
       axios
-        .put(settings.authors.edit + id, data)
+        .put(settings.authors.update + this.id, data)
         .then((res) => {
           if (res.data == "Success") {
             this.status = 1;
@@ -156,7 +156,7 @@ export default {
   mounted() {
     axios.defaults.baseURL = this.url;
     axios
-      .get(settings.authors.get + id)
+      .get(settings.authors.get + this.id)
       .then((res) => {
         if (res) {
           this.form_author_name_en = res.data.author_name_en;

@@ -2161,7 +2161,7 @@ __webpack_require__.r(__webpack_exports__);
         album_name_mm: this.form_album_name_mm
       };
       this.errors = {};
-      axios__WEBPACK_IMPORTED_MODULE_0___default().put(_settings_json__WEBPACK_IMPORTED_MODULE_1__.albums.edit + id, data).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().put(_settings_json__WEBPACK_IMPORTED_MODULE_1__.albums.update + this.id, data).then(function (res) {
         if (res.data == "Success") {
           _this.status = 1;
         }
@@ -2175,7 +2175,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this2 = this;
 
     (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.albums.get + id).then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.albums.get + this.id).then(function (res) {
       if (res) {
         _this2.form_album_name_en = res.data.album_name_en;
         _this2.form_album_name_mm = res.data.album_name_mm;
@@ -2686,7 +2686,7 @@ __webpack_require__.r(__webpack_exports__);
         author_name_mm: this.form_author_name_mm
       };
       this.errors = {};
-      axios__WEBPACK_IMPORTED_MODULE_0___default().put(_settings_json__WEBPACK_IMPORTED_MODULE_1__.authors.edit + id, data).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().put(_settings_json__WEBPACK_IMPORTED_MODULE_1__.authors.update + this.id, data).then(function (res) {
         if (res.data == "Success") {
           _this.status = 1;
         }
@@ -2700,7 +2700,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this2 = this;
 
     (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.authors.get + id).then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.authors.get + this.id).then(function (res) {
       if (res) {
         _this2.form_author_name_en = res.data.author_name_en;
         _this2.form_author_name_mm = res.data.author_name_mm;
@@ -3005,18 +3005,18 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (err) {
       return console.log("error");
     });
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.songs.list).then(function (res) {
-      return _this.songs = res.data.data.length;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.songs.getAll).then(function (res) {
+      return _this.songs = res.data.length;
     })["catch"](function (err) {
       return console.log("error getting songs");
     });
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.albums.list).then(function (res) {
-      return _this.albums = res.data.data.length;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.albums.getAll).then(function (res) {
+      return _this.albums = res.data.length;
     })["catch"](function (err) {
       return console.log("error getting albums");
     });
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.authors.list).then(function (res) {
-      return _this.authors = res.data.data.length;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.authors.getAll).then(function (res) {
+      return _this.authors = res.data.length;
     })["catch"](function (err) {
       return console.log("error getting authors");
     });
@@ -3440,12 +3440,12 @@ __webpack_require__.r(__webpack_exports__);
 
     (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
     axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.albums.getAll).then(function (res) {
-      _this3.albums = res.data.data;
+      _this3.albums = res.data;
     })["catch"](function (err) {
       console.log("error getting albums");
     });
     axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.authors.getAll).then(function (res) {
-      _this3.authors = res.data.data;
+      _this3.authors = res.data;
     })["catch"](function (err) {
       console.log("error getting authors");
     });
@@ -3716,7 +3716,7 @@ __webpack_require__.r(__webpack_exports__);
         new_image: this.form_new_file
       };
       this.errors = {};
-      axios__WEBPACK_IMPORTED_MODULE_0___default().put(_settings_json__WEBPACK_IMPORTED_MODULE_1__.songs.edit + id, data).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().put(_settings_json__WEBPACK_IMPORTED_MODULE_1__.songs.update + this.id, data).then(function (res) {
         if (res.data == "Success") {
           _this.status = 1;
         }
@@ -3753,7 +3753,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this3 = this;
 
     (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.songs.get + id).then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.songs.get + this.id).then(function (res) {
       if (res) {
         _this3.form_author_id = res.data.author_id;
         _this3.form_album_id = res.data.album_id;
@@ -3767,12 +3767,12 @@ __webpack_require__.r(__webpack_exports__);
       console.log("error getting albums");
     });
     axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.albums.getAll).then(function (res) {
-      _this3.albums = res.data.data;
+      _this3.albums = res.data;
     })["catch"](function (err) {
       console.log("error getting albums");
     });
     axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.authors.getAll).then(function (res) {
-      _this3.authors = res.data.data;
+      _this3.authors = res.data;
     })["catch"](function (err) {
       console.log("error getting authors");
     });

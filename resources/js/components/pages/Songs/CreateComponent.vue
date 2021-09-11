@@ -283,7 +283,7 @@ export default {
     axios
       .get(settings.albums.getAll)
       .then((res) => {
-        this.albums = res.data.data;
+        this.albums = res.data;
       })
       .catch((err) => {
         console.log("error getting albums");
@@ -292,7 +292,7 @@ export default {
     axios
       .get(settings.authors.getAll)
       .then((res) => {
-        this.authors = res.data.data;
+        this.authors = res.data;
       })
       .catch((err) => {
         console.log("error getting authors");

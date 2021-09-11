@@ -8,7 +8,9 @@ class SongRepository
 {
     public function get($id)
     {
-        return Song::findOrFail($id);
+        $song = Song::findOrFail($id);
+        $song->update(['view_count' => $song->view_count + 1]);
+        return $song;
     }
 
     public function list()

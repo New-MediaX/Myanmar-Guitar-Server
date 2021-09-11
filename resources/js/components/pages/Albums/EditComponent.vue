@@ -141,7 +141,7 @@ export default {
       this.errors = {};
 
       axios
-        .put(settings.albums.edit + id, data)
+        .put(settings.albums.update + this.id, data)
         .then((res) => {
           if (res.data == "Success") {
             this.status = 1;
@@ -156,7 +156,7 @@ export default {
   mounted() {
     axios.defaults.baseURL = this.url;
     axios
-      .get(settings.albums.get + id)
+      .get(settings.albums.get + this.id)
       .then((res) => {
         if (res) {
           this.form_album_name_en = res.data.album_name_en;

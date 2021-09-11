@@ -105,16 +105,16 @@ export default {
       .then((res) => (this.appName = res.data))
       .catch((err) => console.log("error"));
     axios
-      .get(settings.songs.list)
-      .then((res) => (this.songs = res.data.data.length))
+      .get(settings.songs.getAll)
+      .then((res) => (this.songs = res.data.length))
       .catch((err) => console.log("error getting songs"));
     axios
-      .get(settings.albums.list)
-      .then((res) => (this.albums = res.data.data.length))
+      .get(settings.albums.getAll)
+      .then((res) => (this.albums = res.data.length))
       .catch((err) => console.log("error getting albums"));
     axios
-      .get(settings.authors.list)
-      .then((res) => (this.authors = res.data.data.length))
+      .get(settings.authors.getAll)
+      .then((res) => (this.authors = res.data.length))
       .catch((err) => console.log("error getting authors"));
   },
 };
