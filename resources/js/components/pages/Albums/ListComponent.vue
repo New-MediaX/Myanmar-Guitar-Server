@@ -92,6 +92,7 @@
 <script>
 import axios from "axios";
 import VueSweetalert2 from "vue-sweetalert2";
+import settings from "../../../settings.json"
 Vue.component("pagination", require("laravel-vue-pagination"));
 
 import "sweetalert2/dist/sweetalert2.min.css";
@@ -120,7 +121,7 @@ export default {
         .then((result) => {
           if (result.isConfirmed) {
             axios
-              .delete(`/albums/delete/${id}`)
+              .delete(settings.albums.delete + id)
               .then((res) => {
                 this.$swal.fire({
                   icon: "success",
@@ -144,7 +145,7 @@ export default {
     getAlbums( page = 1)
     {
       axios
-      .get("/albums/all?page=" + page)
+      .get(settings.albums.list + page)
       .then((res) => {
         this.albums = res.data;
       })

@@ -21,6 +21,17 @@ class SongRepository {
         return $songs;
     }
 
+    public function all()
+    {
+        $songs = Song::all();
+        foreach ($songs as $song) {
+            $song->author;
+            $song->album;
+        }
+
+        return $songs;
+    }
+
     public function get($id)
     {
         return Song::find($id);

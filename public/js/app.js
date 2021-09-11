@@ -1847,6 +1847,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _settings_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../settings.json */ "./resources/js/settings.json");
 //
 //
 //
@@ -1961,6 +1962,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["url"],
@@ -1982,7 +1984,7 @@ __webpack_require__.r(__webpack_exports__);
         album_name_mm: this.form_album_name_mm
       };
       this.errors = {};
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/albums/create", data).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post(_settings_json__WEBPACK_IMPORTED_MODULE_1__.albums.create, data).then(function (res) {
         if (res.data == "Success") {
           _this.clearInputs();
 
@@ -2018,6 +2020,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _settings_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../settings.json */ "./resources/js/settings.json");
 //
 //
 //
@@ -2134,6 +2137,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["id", "url"],
@@ -2157,7 +2161,7 @@ __webpack_require__.r(__webpack_exports__);
         album_name_mm: this.form_album_name_mm
       };
       this.errors = {};
-      axios__WEBPACK_IMPORTED_MODULE_0___default().put("/albums/edit/".concat(this.id), data).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().put(_settings_json__WEBPACK_IMPORTED_MODULE_1__.albums.edit + id, data).then(function (res) {
         if (res.data == "Success") {
           _this.status = 1;
         }
@@ -2171,7 +2175,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this2 = this;
 
     (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/albums/get/".concat(this.id)).then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.albums.get + id).then(function (res) {
       if (res) {
         _this2.form_album_name_en = res.data.album_name_en;
         _this2.form_album_name_mm = res.data.album_name_mm;
@@ -2199,7 +2203,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-sweetalert2 */ "./node_modules/vue-sweetalert2/dist/vue-sweetalert.umd.js");
 /* harmony import */ var vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.min.css */ "./node_modules/sweetalert2/dist/sweetalert2.min.css");
+/* harmony import */ var _settings_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../settings.json */ "./resources/js/settings.json");
+/* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.min.css */ "./node_modules/sweetalert2/dist/sweetalert2.min.css");
 //
 //
 //
@@ -2291,6 +2296,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
@@ -2318,7 +2324,7 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
         cancelButtonText: "Cancel"
       }).then(function (result) {
         if (result.isConfirmed) {
-          axios__WEBPACK_IMPORTED_MODULE_0___default().delete("/albums/delete/".concat(id)).then(function (res) {
+          axios__WEBPACK_IMPORTED_MODULE_0___default().delete(_settings_json__WEBPACK_IMPORTED_MODULE_2__.albums.delete + id).then(function (res) {
             _this.$swal.fire({
               icon: "success",
               title: "Delete Successful",
@@ -2338,7 +2344,7 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
       var _this2 = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get("/albums/all?page=" + page).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_2__.albums.list + page).then(function (res) {
         _this2.albums = res.data;
       })["catch"](function (err) {
         console.log("error");
@@ -2366,6 +2372,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _settings_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../settings.json */ "./resources/js/settings.json");
 //
 //
 //
@@ -2480,6 +2487,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["url"],
@@ -2501,7 +2509,7 @@ __webpack_require__.r(__webpack_exports__);
         author_name_mm: this.form_author_name_mm
       };
       this.errors = {};
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/authors/create", data).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post(_settings_json__WEBPACK_IMPORTED_MODULE_1__.authors.create, data).then(function (res) {
         if (res.data == "Success") {
           _this.clearInputs();
 
@@ -2537,6 +2545,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _settings_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../settings.json */ "./resources/js/settings.json");
 //
 //
 //
@@ -2653,6 +2662,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["id", "url"],
@@ -2676,7 +2686,7 @@ __webpack_require__.r(__webpack_exports__);
         author_name_mm: this.form_author_name_mm
       };
       this.errors = {};
-      axios__WEBPACK_IMPORTED_MODULE_0___default().put("/authors/edit/".concat(this.id), data).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().put(_settings_json__WEBPACK_IMPORTED_MODULE_1__.authors.edit + id, data).then(function (res) {
         if (res.data == "Success") {
           _this.status = 1;
         }
@@ -2690,7 +2700,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this2 = this;
 
     (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/authors/get/".concat(this.id)).then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.authors.get + id).then(function (res) {
       if (res) {
         _this2.form_author_name_en = res.data.author_name_en;
         _this2.form_author_name_mm = res.data.author_name_mm;
@@ -2718,7 +2728,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-sweetalert2 */ "./node_modules/vue-sweetalert2/dist/vue-sweetalert.umd.js");
 /* harmony import */ var vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.min.css */ "./node_modules/sweetalert2/dist/sweetalert2.min.css");
+/* harmony import */ var _settings_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../settings.json */ "./resources/js/settings.json");
+/* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.min.css */ "./node_modules/sweetalert2/dist/sweetalert2.min.css");
 //
 //
 //
@@ -2810,6 +2821,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
@@ -2837,7 +2849,7 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
         cancelButtonText: "Cancel"
       }).then(function (result) {
         if (result.isConfirmed) {
-          axios__WEBPACK_IMPORTED_MODULE_0___default().delete("/authors/delete/".concat(id)).then(function (res) {
+          axios__WEBPACK_IMPORTED_MODULE_0___default().delete(_settings_json__WEBPACK_IMPORTED_MODULE_2__.authors.delete + id).then(function (res) {
             _this.$swal.fire({
               icon: "success",
               title: "Delete Successful",
@@ -2857,7 +2869,7 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
       var _this2 = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get("/authors/all?page=" + page).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_2__.authors.list + page).then(function (res) {
         _this2.authors = res.data;
       })["catch"](function (err) {
         console.log("error");
@@ -2885,6 +2897,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _settings_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../settings.json */ "./resources/js/settings.json");
 //
 //
 //
@@ -2971,6 +2984,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["url"],
@@ -2986,22 +3000,22 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/getAppName").then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.general.appName).then(function (res) {
       return _this.appName = res.data;
     })["catch"](function (err) {
       return console.log("error");
     });
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/songs/all").then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.songs.list).then(function (res) {
       return _this.songs = res.data.data.length;
     })["catch"](function (err) {
       return console.log("error getting songs");
     });
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/albums/all").then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.albums.list).then(function (res) {
       return _this.albums = res.data.data.length;
     })["catch"](function (err) {
       return console.log("error getting albums");
     });
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/authors/all").then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.authors.list).then(function (res) {
       return _this.authors = res.data.data.length;
     })["catch"](function (err) {
       return console.log("error getting authors");
@@ -3024,6 +3038,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _settings_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../settings.json */ "./resources/js/settings.json");
 //
 //
 //
@@ -3082,6 +3097,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['url'],
@@ -3101,7 +3117,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.username !== "") {
         if (this.password !== "") {
-          axios__WEBPACK_IMPORTED_MODULE_0___default().post("/auth/login", {
+          axios__WEBPACK_IMPORTED_MODULE_0___default().post(_settings_json__WEBPACK_IMPORTED_MODULE_1__.general.login, {
             email: this.username,
             password: this.password
           }).then(function (res) {
@@ -3138,6 +3154,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _settings_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../settings.json */ "./resources/js/settings.json");
 //
 //
 //
@@ -3341,6 +3358,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["url"],
@@ -3374,7 +3392,7 @@ __webpack_require__.r(__webpack_exports__);
         image: this.form_file
       };
       this.errors = {};
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/songs/create", data).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post(_settings_json__WEBPACK_IMPORTED_MODULE_1__.songs.create, data).then(function (res) {
         if (res.data == "Success") {
           _this.clearInputs();
 
@@ -3421,12 +3439,12 @@ __webpack_require__.r(__webpack_exports__);
     var _this3 = this;
 
     (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/albums/all").then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.albums.getAll).then(function (res) {
       _this3.albums = res.data.data;
     })["catch"](function (err) {
       console.log("error getting albums");
     });
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/authors/all").then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.authors.getAll).then(function (res) {
       _this3.authors = res.data.data;
     })["catch"](function (err) {
       console.log("error getting authors");
@@ -3449,6 +3467,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _settings_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../settings.json */ "./resources/js/settings.json");
 //
 //
 //
@@ -3659,6 +3678,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["id", "url"],
@@ -3696,7 +3716,7 @@ __webpack_require__.r(__webpack_exports__);
         new_image: this.form_new_file
       };
       this.errors = {};
-      axios__WEBPACK_IMPORTED_MODULE_0___default().put("/songs/edit/".concat(this.id), data).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().put(_settings_json__WEBPACK_IMPORTED_MODULE_1__.songs.edit + id, data).then(function (res) {
         if (res.data == "Success") {
           _this.status = 1;
         }
@@ -3733,7 +3753,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this3 = this;
 
     (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/songs/get/".concat(this.id)).then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.songs.get + id).then(function (res) {
       if (res) {
         _this3.form_author_id = res.data.author_id;
         _this3.form_album_id = res.data.album_id;
@@ -3746,12 +3766,12 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (err) {
       console.log("error getting albums");
     });
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/albums/all").then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.albums.getAll).then(function (res) {
       _this3.albums = res.data.data;
     })["catch"](function (err) {
       console.log("error getting albums");
     });
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/authors/all").then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.authors.getAll).then(function (res) {
       _this3.authors = res.data.data;
     })["catch"](function (err) {
       console.log("error getting authors");
@@ -3776,7 +3796,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-sweetalert2 */ "./node_modules/vue-sweetalert2/dist/vue-sweetalert.umd.js");
 /* harmony import */ var vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.min.css */ "./node_modules/sweetalert2/dist/sweetalert2.min.css");
+/* harmony import */ var _settings_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../settings.json */ "./resources/js/settings.json");
+/* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.min.css */ "./node_modules/sweetalert2/dist/sweetalert2.min.css");
 //
 //
 //
@@ -3880,6 +3901,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
@@ -3907,7 +3929,7 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
         cancelButtonText: "Cancel"
       }).then(function (result) {
         if (result.isConfirmed) {
-          axios__WEBPACK_IMPORTED_MODULE_0___default().delete("/songs/delete/".concat(id)).then(function (res) {
+          axios__WEBPACK_IMPORTED_MODULE_0___default().delete(_settings_json__WEBPACK_IMPORTED_MODULE_2__.songs.delete + id).then(function (res) {
             _this.$swal.fire({
               icon: "success",
               title: "Delete Successful",
@@ -3927,7 +3949,7 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
       var _this2 = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get("/songs/all?page=" + page).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_2__.songs.list + page).then(function (res) {
         _this2.songs = res.data;
       })["catch"](function (err) {
         console.log("error");
@@ -3955,6 +3977,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _settings_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../settings.json */ "./resources/js/settings.json");
 //
 //
 //
@@ -4047,6 +4070,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["id", "url"],
@@ -4068,7 +4092,7 @@ __webpack_require__.r(__webpack_exports__);
         token: this.token
       };
       this.errors = {};
-      axios__WEBPACK_IMPORTED_MODULE_0___default().put("/token/edit/", data).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().put(_settings_json__WEBPACK_IMPORTED_MODULE_1__.token.edit, data).then(function (res) {
         if (res.data == "Success") {
           _this.status = 1;
         }
@@ -4082,7 +4106,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this2 = this;
 
     (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = this.url;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/token/getToken").then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(_settings_json__WEBPACK_IMPORTED_MODULE_1__.token.get).then(function (res) {
       _this2.token = res.data.token;
     })["catch"](function (err) {
       return console.log("Error");
@@ -56826,6 +56850,17 @@ Vue.compile = compileToFunctions;
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Vue);
 
+
+/***/ }),
+
+/***/ "./resources/js/settings.json":
+/*!************************************!*\
+  !*** ./resources/js/settings.json ***!
+  \************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"songs":{"get":"/songs/get/","list":"/songs/all?page=","getAll":"/songs/get-all","create":"/songs/create","update":"/songs/edit/","delete":"/songs/delete/"},"authors":{"get":"/authors/get/","list":"/authors/all?page=","getAll":"/authors/get-all","create":"/authors/create","update":"/authors/edit/","delete":"/authors/delete/"},"albums":{"get":"/albums/get/","list":"/albums/all?page=","getAll":"/albums/get-all","create":"/albums/create","update":"/albums/edit/","delete":"/albums/delete/"},"token":{"get":"/token/getToken","edit":"/token/edit/"},"general":{"appName":"/getAppName","login":"/auth/login"}}');
 
 /***/ })
 

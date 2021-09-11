@@ -114,6 +114,7 @@
 
 <script>
 import axios from "axios";
+import settings from "../../../settings.json"
 export default {
   props: ["url"],
   data: function () {
@@ -136,7 +137,7 @@ export default {
       this.errors = {};
 
       axios
-        .post("/albums/create", data)
+        .post(settings.albums.create , data)
         .then((res) => {
           if(res.data == "Success")
           {

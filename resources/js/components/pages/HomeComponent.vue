@@ -86,6 +86,8 @@
 </template>
 <script>
 import axios from "axios";
+import settings from "../../settings.json"
+
 export default {
   props: ["url"],
   data: function () {
@@ -99,19 +101,19 @@ export default {
   mounted() {
     axios.defaults.baseURL = this.url;
     axios
-      .get("/getAppName")
+      .get(settings.general.appName)
       .then((res) => (this.appName = res.data))
       .catch((err) => console.log("error"));
     axios
-      .get("/songs/all")
+      .get(settings.songs.list)
       .then((res) => (this.songs = res.data.data.length))
       .catch((err) => console.log("error getting songs"));
     axios
-      .get("/albums/all")
+      .get(settings.albums.list)
       .then((res) => (this.albums = res.data.data.length))
       .catch((err) => console.log("error getting albums"));
     axios
-      .get("/authors/all")
+      .get(settings.authors.list)
       .then((res) => (this.authors = res.data.data.length))
       .catch((err) => console.log("error getting authors"));
   },

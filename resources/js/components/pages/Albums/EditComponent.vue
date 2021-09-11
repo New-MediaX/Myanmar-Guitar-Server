@@ -116,6 +116,7 @@
 
 <script>
 import axios from "axios";
+import settings from "../../../settings.json"
 export default {
   props: ["id","url"],
   data: function () {
@@ -140,7 +141,7 @@ export default {
       this.errors = {};
 
       axios
-        .put(`/albums/edit/${this.id}`, data)
+        .put(settings.albums.edit + id, data)
         .then((res) => {
           if (res.data == "Success") {
             this.status = 1;
@@ -155,7 +156,7 @@ export default {
   mounted() {
     axios.defaults.baseURL = this.url;
     axios
-      .get(`/albums/get/${this.id}`)
+      .get(settings.albums.get + id)
       .then((res) => {
         if (res) {
           this.form_album_name_en = res.data.album_name_en;

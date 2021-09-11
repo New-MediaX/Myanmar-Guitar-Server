@@ -1,0 +1,34 @@
+{
+    "songs" : {
+        "get" : "/songs/get/",
+        "list" : "/songs/all?page=",
+        "getAll" : "/songs/get-all",
+        "create" : "/songs/create",
+        "update" : "/songs/edit/",
+        "delete" : "/songs/delete/"
+    },
+    "authors" : {
+        "get" : "/authors/get/",
+        "list" : "/authors/all?page=",
+        "getAll" : "/authors/get-all",
+        "create" : "/authors/create",
+        "update" : "/authors/edit/",
+        "delete" : "/authors/delete/"
+    },
+    "albums" : {
+        "get" : "/albums/get/",
+        "list" : "/albums/all?page=",
+        "getAll" : "/albums/get-all",
+        "create" : "/albums/create",
+        "update" : "/albums/edit/",
+        "delete" : "/albums/delete/"
+    },
+    "token" : {
+        "get" : "/token/getToken",
+        "edit" : "/token/edit/"
+    },
+    "general" : {
+        "appName" : "/getAppName",
+        "login" : "/auth/login"
+    }
+}

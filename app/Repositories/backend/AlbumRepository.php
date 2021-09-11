@@ -15,6 +15,11 @@ class AlbumRepository {
         return Album::paginate(20);
     }
 
+    public function all($request)
+    {
+        return Album::all();
+    }
+
     public function get($id)
     {
         return Album::find($id);

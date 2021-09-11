@@ -24,6 +24,11 @@ class AuthorController extends Controller
         return $this->authorRepo->getAll($request);
     }
 
+    public function all(Request $request)
+    {
+        return $this->authorRepo->all($request);
+    }
+
     public function create()
     {
         return view('app.authors.create');

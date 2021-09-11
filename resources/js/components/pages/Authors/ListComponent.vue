@@ -92,6 +92,7 @@
 <script>
 import axios from "axios";
 import VueSweetalert2 from "vue-sweetalert2";
+import settings from "../../../settings.json"
 Vue.component("pagination", require("laravel-vue-pagination"));
 import "sweetalert2/dist/sweetalert2.min.css";
 Vue.use(VueSweetalert2);
@@ -119,7 +120,7 @@ export default {
         .then((result) => {
           if (result.isConfirmed) {
             axios
-              .delete(`/authors/delete/${id}`)
+              .delete(settings.authors.delete + id)
               .then((res) => {
                 this.$swal.fire({
                   icon: "success",
@@ -143,7 +144,7 @@ export default {
     getAuthors( page = 1)
     {
       axios
-      .get("/authors/all?page=" + page)
+      .get(settings.authors.list + page)
       .then((res) => {
         this.authors = res.data;
       })

@@ -15,6 +15,11 @@ class AuthorRepository {
         return Author::paginate(20);
     }
 
+    public function all()
+    {
+        return Author::all();
+    }
+
     public function get($id)
     {
         return Author::find($id);

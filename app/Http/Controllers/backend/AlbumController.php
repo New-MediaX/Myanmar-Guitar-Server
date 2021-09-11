@@ -24,6 +24,11 @@ class AlbumController extends Controller
         return $this->albumRepo->getAll($request);
     }
 
+    public function all(Request $request)
+    {
+        return $this->albumRepo->all($request);
+    }
+
     public function create()
     {
         return view('app.albums.create');

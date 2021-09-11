@@ -58,6 +58,7 @@
 
 <script>
 import axios from "axios";
+import settings from "../../settings.json"
 export default {
   props: ['url'],
   data: function () {
@@ -74,7 +75,7 @@ export default {
       if (this.username !== "") {
         if (this.password !== "") {
           axios
-            .post("/auth/login", {
+            .post(settings.general.login, {
               email: this.username,
               password: this.password,
             })

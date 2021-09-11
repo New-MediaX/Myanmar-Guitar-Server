@@ -25,6 +25,11 @@ class SongController extends Controller
         return $this->songRepo->getAll($request);
     }
 
+    public function all(Request $request)
+    {
+        return $this->songRepo->all($request);
+    }
+
     public function create()
     {
         return view('app.songs.create');

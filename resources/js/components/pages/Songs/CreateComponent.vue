@@ -203,6 +203,7 @@
 
 <script>
 import axios from "axios";
+import settings from "../../../settings.json"
 export default {
   props: ["url"],
   data: function () {
@@ -237,7 +238,7 @@ export default {
       this.errors = {};
 
       axios
-        .post("/songs/create", data)
+        .post(settings.songs.create, data)
         .then((res) => {
           if(res.data == "Success")
           {
@@ -280,7 +281,7 @@ export default {
   mounted() {
     axios.defaults.baseURL = this.url;
     axios
-      .get("/albums/all")
+      .get(settings.albums.getAll)
       .then((res) => {
         this.albums = res.data.data;
       })
@@ -289,7 +290,7 @@ export default {
       });
 
     axios
-      .get("/authors/all")
+      .get(settings.authors.getAll)
       .then((res) => {
         this.authors = res.data.data;
       })

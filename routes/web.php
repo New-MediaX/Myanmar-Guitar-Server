@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth'] , function() {
     Route::group(['prefix' => 'songs'] , function() {
         Route::get('/list' , [App\Http\Controllers\backend\SongController::class, 'list'])->name('songs');
         Route::get('/all' , [App\Http\Controllers\backend\SongController::class, 'getAll']);
+        Route::get('/get-all' , [App\Http\Controllers\backend\SongController::class, 'all']);
         Route::get('/get/{id}' , [App\Http\Controllers\backend\SongController::class, 'get']);
         Route::get('/create' , [App\Http\Controllers\backend\SongController::class, 'create']);
         Route::post('/create' , [App\Http\Controllers\backend\SongController::class, 'store']);
@@ -37,6 +38,7 @@ Route::group(['middleware' => 'auth'] , function() {
     Route::group(['prefix' => 'authors'] , function() {
         Route::get('/list' , [App\Http\Controllers\backend\AuthorController::class, 'list'])->name('authors');
         Route::get('/all' , [App\Http\Controllers\backend\AuthorController::class, 'getAll']);
+        Route::get('/get-all' , [App\Http\Controllers\backend\AuthorController::class, 'all']);
         Route::get('/get/{id}' , [App\Http\Controllers\backend\AuthorController::class, 'get']);
         Route::get('/create' , [App\Http\Controllers\backend\AuthorController::class, 'create']);
         Route::post('/create' , [App\Http\Controllers\backend\AuthorController::class, 'store']);
@@ -48,6 +50,7 @@ Route::group(['middleware' => 'auth'] , function() {
     Route::group(['prefix' => 'albums'] , function() {
         Route::get('/list' , [App\Http\Controllers\backend\AlbumController::class, 'list'])->name('albums');
         Route::get('/all' , [App\Http\Controllers\backend\AlbumController::class, 'getAll']);
+        Route::get('/get-all' , [App\Http\Controllers\backend\AlbumController::class, 'all']);
         Route::get('/get/{id}' , [App\Http\Controllers\backend\AlbumController::class, 'get']);
         Route::get('/create' , [App\Http\Controllers\backend\AlbumController::class, 'create']);
         Route::post('/create' , [App\Http\Controllers\backend\AlbumController::class, 'store']);
