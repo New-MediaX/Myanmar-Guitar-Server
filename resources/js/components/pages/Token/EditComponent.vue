@@ -92,6 +92,7 @@
 
 <script>
 import axios from "axios";
+import settings from "../../../settings.json"
 export default {
   props: ["id", "url"],
   data: function () {
@@ -114,7 +115,7 @@ export default {
       this.errors = {};
 
       axios
-        .put("/token/edit/", data)
+        .put(settings.token.edit, data)
         .then((res) => {
           if (res.data == "Success") {
             this.status = 1;
@@ -130,7 +131,7 @@ export default {
     axios.defaults.baseURL = this.url;
 
     axios
-      .get("/token/getToken")
+      .get(settings.token.get)
       .then((res) => {
         this.token = res.data.token;
       })

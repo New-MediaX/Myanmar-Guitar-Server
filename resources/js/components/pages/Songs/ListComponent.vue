@@ -9,7 +9,7 @@
               Song List
               <a
                 class="btn btn-success btn-md"
-                :href="url+'/songs/create'"
+                :href="url + '/songs/create'"
                 role="button"
                 >Create New <i class="fas fa-plus-circle"></i
               ></a>
@@ -37,6 +37,23 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                <div class="input-group mb-3 offset-md-8 col-md-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search"
+                    v-model="searchTerm"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      @click="search()"
+                      class="btn btn-outline-secondary"
+                      type="button"
+                    >
+                      Search
+                    </button>
+                  </div>
+                </div>
                 <table id="list" class="table table-bordered table-hover">
                   <thead>
                     <tr>
@@ -66,7 +83,7 @@
                       <td>
                         <a
                           class="btn btn-warning"
-                          :href="url+'/songs/edit/' + song.id"
+                          :href="url + '/songs/edit/' + song.id"
                           role="button"
                           ><i class="fas fa-edit"></i
                         ></a>
@@ -82,10 +99,10 @@
                   </tbody>
                 </table>
                 <pagination
-                    :data="songs"
-                    @pagination-change-page="getSongs"
-                    :limit="20"
-                  ></pagination>
+                  :data="songs"
+                  @pagination-change-page="getSongs"
+                  :limit="20"
+                ></pagination>
               </div>
               <!-- /.card-body -->
             </div>
@@ -104,6 +121,7 @@
 <script>
 import axios from "axios";
 import VueSweetalert2 from "vue-sweetalert2";
+import settings from "../../../settings.json";
 Vue.component("pagination", require("laravel-vue-pagination"));
 import "sweetalert2/dist/sweetalert2.min.css";
 Vue.use(VueSweetalert2);
@@ -113,6 +131,7 @@ export default {
   data: function () {
     return {
       songs: {},
+      searchTerm: "",
     };
   },
   methods: {
@@ -131,7 +150,7 @@ export default {
         .then((result) => {
           if (result.isConfirmed) {
             axios
-              .delete(`/songs/delete/${id}`)
+              .delete(settings.songs.delete + id)
               .then((res) => {
                 this.$swal.fire({
                   icon: "success",
@@ -143,26 +162,34 @@ export default {
                 this.getSongs();
               })
               .catch((err) => {
-                this.$swal.fire(
-                  "Deleted!",
-                  "Song Deleted Error",
-                  "Error"
-                );
+                this.$swal.fire("Deleted!", "Song Deleted Error", "Error");
               });
           }
         });
     },
-    getSongs( page = 1)
-    {
+    getSongs(page = 1) {
       axios
-      .get("/songs/all?page=" + page)
-      .then((res) => {
-        this.songs = res.data;
-      })
-      .catch((err) => {
-        console.log("error");
-      });
-    }
+        .get(settings.songs.list + page)
+        .then((res) => {
+          this.songs = res.data;
+        })
+        .catch((err) => {
+          console.log("error");
+        });
+    },
+    search() {
+      axios
+        .post(settings.songs.search, { searchTerm: this.searchTerm })
+        .then((res) => {
+          if (res.data.length > 0) {
+            this.songs = res;
+            this.searchTerm = "";
+          }
+        })
+        .catch((error) => {
+          console.log("search error");
+        });
+    },
   },
   mounted() {
     axios.defaults.baseURL = this.url;

@@ -24,6 +24,11 @@ class AuthorController extends Controller
         return $this->authorRepo->getAll($request);
     }
 
+    public function all(Request $request)
+    {
+        return $this->authorRepo->all($request);
+    }
+
     public function create()
     {
         return view('app.authors.create');
@@ -52,5 +57,10 @@ class AuthorController extends Controller
     public function delete($id)
     {
         return $this->authorRepo->delete($id);
+    }
+
+    public function search(Request $request)
+    {
+        return $this->authorRepo->search($request);
     }
 }

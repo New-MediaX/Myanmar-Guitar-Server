@@ -37,8 +37,12 @@ class SongRepository
             return $songs;
         }
 
-        $songs = Song::where("song_name_en", "LIKE", "%" . $search_term . "%")
-            ->orWhere("song_name_mm", "LIKE", "%" . $search_term . "%")
+        $songs = Song::select('songs.*')
+            ->leftJoin('authors','songs.author_id','=','authors.id')
+            ->where("authors.author_name_en", "LIKE", "%" . $search_term . "%")
+            ->orWhere("authors.author_name_mm", "LIKE", "%" . $search_term . "%")
+            ->orWhere("songs.song_name_en", "LIKE", "%" . $search_term . "%")
+            ->orWhere("songs.song_name_mm", "LIKE", "%" . $search_term . "%")
             ->get();
 
         $this->getRelations($songs);
@@ -48,7 +52,8 @@ class SongRepository
 
     public function getPopular()
     {
-        $songs = Song::where("is_popular", "=", "1")->orderBy("updated_at", "DESC")->take(100)->get();
+        // $songs = Song::where("is_popular","=", 1)->orderBy("updated_at", "DESC")->take(100)->get();
+        $songs = Song::orderBy("view_count", "DESC")->take(100)->get();
         $this->getRelations($songs);
 
         return $songs;

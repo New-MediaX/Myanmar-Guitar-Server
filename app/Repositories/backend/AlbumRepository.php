@@ -15,6 +15,11 @@ class AlbumRepository {
         return Album::paginate(20);
     }
 
+    public function all($request)
+    {
+        return Album::all();
+    }
+
     public function get($id)
     {
         return Album::find($id);
@@ -64,5 +69,19 @@ class AlbumRepository {
         } catch (\Exception $e) {
             return "Error Deleting New Album!";
         }
+    }
+
+    public function search($request)
+    {
+        $search_term = $request['searchTerm'];
+        if ($search_term == "" | $search_term == null) {
+            $albums = Album::orderBy('updated_at', 'DESC')->get();
+            return $albums;
+        }
+
+        $albums = Album::where("album_name_en", "LIKE", "%" . $search_term . "%")
+            ->orWhere("album_name_mm", "LIKE", "%" . $search_term . "%")
+            ->get();
+        return $albums;
     }
 }

@@ -24,6 +24,11 @@ class AlbumController extends Controller
         return $this->albumRepo->getAll($request);
     }
 
+    public function all(Request $request)
+    {
+        return $this->albumRepo->all($request);
+    }
+
     public function create()
     {
         return view('app.albums.create');
@@ -52,5 +57,10 @@ class AlbumController extends Controller
     public function delete($id)
     {
         return $this->albumRepo->delete($id);
+    }
+
+    public function search(Request $request)
+    {
+        return $this->albumRepo->search($request);
     }
 }

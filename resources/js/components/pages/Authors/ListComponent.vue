@@ -9,7 +9,7 @@
               Author List
               <a
                 class="btn btn-success btn-md"
-                :href="url+'/authors/create'"
+                :href="url + '/authors/create'"
                 role="button"
                 >Create New <i class="fas fa-plus-circle"></i
               ></a>
@@ -37,6 +37,23 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                <div class="input-group mb-3 offset-md-8 col-md-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search"
+                    v-model="searchTerm"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      @click="search()"
+                      class="btn btn-outline-secondary"
+                      type="button"
+                    >
+                      Search
+                    </button>
+                  </div>
+                </div>
                 <table id="list" class="table table-bordered table-hover">
                   <thead>
                     <tr>
@@ -54,7 +71,7 @@
                       <td>
                         <a
                           class="btn btn-warning"
-                          :href="url+'/authors/edit/' + author.id"
+                          :href="url + '/authors/edit/' + author.id"
                           role="button"
                           ><i class="fas fa-edit"></i
                         ></a>
@@ -70,10 +87,10 @@
                   </tbody>
                 </table>
                 <pagination
-                    :data="authors"
-                    @pagination-change-page="getAuthors"
-                    :limit="20"
-                  ></pagination>
+                  :data="authors"
+                  @pagination-change-page="getAuthors"
+                  :limit="20"
+                ></pagination>
               </div>
               <!-- /.card-body -->
             </div>
@@ -92,6 +109,7 @@
 <script>
 import axios from "axios";
 import VueSweetalert2 from "vue-sweetalert2";
+import settings from "../../../settings.json";
 Vue.component("pagination", require("laravel-vue-pagination"));
 import "sweetalert2/dist/sweetalert2.min.css";
 Vue.use(VueSweetalert2);
@@ -101,6 +119,7 @@ export default {
   data: function () {
     return {
       authors: {},
+      searchTerm: "",
     };
   },
   methods: {
@@ -119,7 +138,7 @@ export default {
         .then((result) => {
           if (result.isConfirmed) {
             axios
-              .delete(`/authors/delete/${id}`)
+              .delete(settings.authors.delete + id)
               .then((res) => {
                 this.$swal.fire({
                   icon: "success",
@@ -131,26 +150,34 @@ export default {
                 this.getAuthors();
               })
               .catch((err) => {
-                this.$swal.fire(
-                  "Deleted!",
-                  "Author Deleted Error",
-                  "Error"
-                );
+                this.$swal.fire("Deleted!", "Author Deleted Error", "Error");
               });
           }
         });
     },
-    getAuthors( page = 1)
-    {
+    getAuthors(page = 1) {
       axios
-      .get("/authors/all?page=" + page)
-      .then((res) => {
-        this.authors = res.data;
-      })
-      .catch((err) => {
-        console.log("error");
-      });
-    }
+        .get(settings.authors.list + page)
+        .then((res) => {
+          this.authors = res.data;
+        })
+        .catch((err) => {
+          console.log("error");
+        });
+    },
+    search() {
+      axios
+        .post(settings.authors.search, { searchTerm: this.searchTerm })
+        .then((res) => {
+          if (res.data.length > 0) {
+            this.authors = res;
+            this.searchTerm = "";
+          }
+        })
+        .catch((error) => {
+          console.log("search error");
+        });
+    },
   },
   mounted() {
     axios.defaults.baseURL = this.url;

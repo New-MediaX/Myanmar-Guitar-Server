@@ -210,6 +210,7 @@
 
 <script>
 import axios from "axios";
+import settings from "../../../settings.json"
 export default {
   props: ["id","url"],
   data: function () {
@@ -248,7 +249,7 @@ export default {
       this.errors = {};
 
       axios
-        .put(`/songs/edit/${this.id}`, data)
+        .put(settings.songs.update + this.id, data)
         .then((res) => {
           if (res.data == "Success") {
             this.status = 1;
@@ -280,7 +281,7 @@ export default {
   mounted() {
     axios.defaults.baseURL = this.url;
     axios
-      .get(`/songs/get/${this.id}`)
+      .get(settings.songs.get + this.id)
       .then((res) => {
         if (res) {
           this.form_author_id = res.data.author_id;
@@ -297,18 +298,18 @@ export default {
       });
 
     axios
-      .get("/albums/all")
+      .get(settings.albums.getAll)
       .then((res) => {
-        this.albums = res.data.data;
+        this.albums = res.data;
       })
       .catch((err) => {
         console.log("error getting albums");
       });
 
     axios
-      .get("/authors/all")
+      .get(settings.authors.getAll)
       .then((res) => {
-        this.authors = res.data.data;
+        this.authors = res.data;
       })
       .catch((err) => {
         console.log("error getting authors");

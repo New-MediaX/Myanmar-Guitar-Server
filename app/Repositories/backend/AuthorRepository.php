@@ -15,6 +15,11 @@ class AuthorRepository {
         return Author::paginate(20);
     }
 
+    public function all()
+    {
+        return Author::all();
+    }
+
     public function get($id)
     {
         return Author::find($id);
@@ -64,5 +69,19 @@ class AuthorRepository {
         } catch (\Exception $e) {
             return "Error Deleting New Author!";
         }
+    }
+
+    public function search($request)
+    {
+        $search_term = $request['searchTerm'];
+        if ($search_term == "" | $search_term == null) {
+            $authors = Author::orderBy('updated_at', 'DESC')->get();
+            return $authors;
+        }
+
+        $authors = Author::where("author_name_en", "LIKE", "%" . $search_term . "%")
+            ->orWhere("author_name_mm", "LIKE", "%" . $search_term . "%")
+            ->get();
+        return $authors;
     }
 }
