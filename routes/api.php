@@ -21,7 +21,6 @@ Route::middleware('auth:api')->get('/songs', function (Request $request) {
 Route::group(['prefix' => 'v1','middleware' => ['apiauth','throttle:60,1']] , function() {
     Route::group(['prefix' => 'songs'] , function() {
         Route::get('/list' , [App\Http\Controllers\api\SongController::class, 'list']);
-        Route::get('/get/{id}' , [App\Http\Controllers\api\SongController::class, 'get']);
         Route::post('/search' , [App\Http\Controllers\api\SongController::class, 'search']);
         Route::get('/getPopular' , [App\Http\Controllers\api\SongController::class, 'getPopular']);
         Route::get('/getNewSongs' , [App\Http\Controllers\api\SongController::class, 'getNewSongs']);
@@ -40,5 +39,11 @@ Route::group(['prefix' => 'v1','middleware' => ['apiauth','throttle:60,1']] , fu
         Route::get('/list' , [App\Http\Controllers\api\AuthorController::class, 'list']);
         Route::get('/get/{id}' , [App\Http\Controllers\api\AuthorController::class, 'get']);
         Route::post('/search' , [App\Http\Controllers\api\AuthorController::class, 'search']);
+    });
+});
+
+Route::group(['prefix' => 'v1','middleware' => ['apiauthsingle','throttle:60,1']] , function() {
+    Route::group(['prefix' => 'songs'] , function() {
+        Route::get('/get/{id}' , [App\Http\Controllers\api\SongController::class, 'get']);
     });
 });

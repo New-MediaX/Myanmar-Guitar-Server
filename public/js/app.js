@@ -3164,7 +3164,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['url'],
+  props: ['url', 'token'],
   data: function data() {
     return {
       username: "",
@@ -3183,7 +3183,8 @@ __webpack_require__.r(__webpack_exports__);
         if (this.password !== "") {
           axios__WEBPACK_IMPORTED_MODULE_0___default().post(_settings_json__WEBPACK_IMPORTED_MODULE_1__.general.login, {
             email: this.username,
-            password: this.password
+            password: this.password,
+            _token: this.token
           }).then(function (res) {
             if (res.data == "Success") {
               _this.status = 1;

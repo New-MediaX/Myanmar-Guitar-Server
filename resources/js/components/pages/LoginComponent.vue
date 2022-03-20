@@ -60,7 +60,7 @@
 import axios from "axios";
 import settings from "../../settings.json"
 export default {
-  props: ['url'],
+  props: ['url','token'],
   data: function () {
     return {
       username: "",
@@ -78,6 +78,7 @@ export default {
             .post(settings.general.login, {
               email: this.username,
               password: this.password,
+              _token: this.token
             })
             .then((res) => {
               if (res.data == "Success") {
